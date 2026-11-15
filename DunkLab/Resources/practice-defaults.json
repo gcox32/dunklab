@@ -1,0 +1,23 @@
+{
+ "stages": [
+  { "name": "One-hand dunk", "clearanceIn": 6, "detail": "Regulation ball, one hand. The baseline." },
+  { "name": "Two-hand dunk", "clearanceIn": 9, "detail": "Both hands on the ball means a lower release point." },
+  { "name": "Reverse", "clearanceIn": 9, "detail": "Back to the rim at the finish. Rotation costs a little height." },
+  { "name": "One-hand tomahawk", "clearanceIn": 9, "detail": "Ball cocked behind the head, then thrown down." },
+  { "name": "Off the backboard", "clearanceIn": 10, "detail": "Self-pass off the glass. Mostly timing once the height is there." },
+  { "name": "Two-hand tomahawk", "clearanceIn": 11, "detail": "Both hands behind the head at the peak." },
+  { "name": "Windmill", "clearanceIn": 13, "detail": "Full arm circle on the way up. Needs hang time." },
+  { "name": "360", "clearanceIn": 13, "detail": "Full turn in the air. Takeoff mechanics matter as much as height." },
+  { "name": "Between the legs", "clearanceIn": 16, "detail": "Ball under a leg and back up before the rim." }
+ ],
+ "focuses": [
+  { "name": "Max touch", "cue": "No ball. Full rest between jumps. Every jump is a test." },
+  { "name": "Approach rhythm", "cue": "Start slow, finish fast. Speed builds into the last two steps." },
+  { "name": "Penultimate step", "cue": "Long, low second-to-last step. Hips drop, then explode." },
+  { "name": "Arm swing", "cue": "Arms back on the penultimate, then rip them up through the rim." },
+  { "name": "Stiff takeoff", "cue": "Plant and go. Don't sink into the last step." },
+  { "name": "Ball control", "cue": "Secure the ball on the gather and keep it high through the jump." },
+  { "name": "Finish at the top", "cue": "Release at the peak. Throw it through the rim, not at it." }
+ ],
+ "defaultAttemptCap": 20
+}

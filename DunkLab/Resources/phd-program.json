@@ -1,0 +1,7280 @@
+{
+ "name": "PhD Program",
+ "author": "Jump Science (Coach Daniel Back)",
+ "summary": "For athletes who are decently strong and already jump well. Builds max strength, then shifts back toward explosive and elastic ability.",
+ "percentBasis": "max deep squat",
+ "basisVideos": [
+  {
+   "title": "Squat Mechanics",
+   "video": "https://youtu.be/kCXnbLv3Br4"
+  },
+  {
+   "title": "Deep Squats",
+   "video": "https://youtu.be/9CXVJrSoqLU"
+  },
+  {
+   "title": "Max Squat Test",
+   "video": "https://youtu.be/SCKwps4RORo"
+  }
+ ],
+ "swaps": [
+  {
+   "replaces": "clean pulls",
+   "options": [
+    "power clean",
+    "power snatch",
+    "push jerk",
+    "split jerk"
+   ],
+   "sets": [
+    {
+     "reps": 1,
+     "load": {
+      "effort": "light"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "light"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "light"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "medium"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "medium"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "medium"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "medium"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "heavy"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "heavy"
+     }
+    },
+    {
+     "reps": 1,
+     "load": {
+      "effort": "heavy"
+     }
+    }
+   ],
+   "details": "single reps, light building to heavy; go heavy enough to feel how strong you are"
+  }
+ ],
+ "guidelines": [
+  "The training is organized into up to 4 workouts per week. They should be scheduled to give you a day of rest before the first three workouts (example: MWF for three workouts or MWFSat for four)",
+  "There is also a stretching routine and a series of therapeutic isometrics. These tools are both meant to be used as needed. More info is on the next two pages.",
+  "Weight recommendations are light, medium, heavy, or a percentage.",
+  "Light weight = 5 out of 10 or lower difficulty. Medium = 6-8 out of 10, no struggling to finish the set. Heavy = 9-10 out of 10, the last rep is difficult to complete.",
+  "When the weight is a percentage such as (60%) this refers to your max deep squat. ALL THE PERCENTAGES IN THE PROGRAM REFER TO MAX DEEP SQUAT.",
+  "In the \"sets x reps (weight)\" column, 4x5 (medium) means 4 sets of 5 reps with medium weight.",
+  "When more than one weight is listed such as 4x5 (60, 70, 80, 90%) or (50% to heavy) do the first set with the light weight and build up to the heaviest weight for the final set.",
+  "Rest as needed between sets and between exercises. This may mean resting 30 seconds between sets of easy hops or resting 5 minutes after a hard set of squats. Use your judgement.",
+  "Even if you are familiar with an exercise, please watch the instructional video. Details of exercise execution are important.",
+  "Please pay attention to the details column."
+ ],
+ "weeks": [
+  {
+   "number": 1,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "line hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 20
+        },
+        {
+         "reps": 20
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x20 each leg",
+       "video": "https://youtu.be/d9jKVNne_d8"
+      },
+      {
+       "exercise": "deadlift",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 87.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 92.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 100.0
+         }
+        }
+       ],
+       "prescription": "9x1 (80% to 100% of max deep squat)",
+       "video": "https://youtu.be/sR37oV07Fng"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg (20%)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "extended plank",
+       "kind": "core",
+       "sets": [
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        }
+       ],
+       "prescription": "20 seconds x3",
+       "video": "https://youtu.be/CQKnsFlvyWQ"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        }
+       ],
+       "prescription": "20m x6",
+       "details": "rest 2 minutes between sprints",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "2/3 squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 55.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "6x5 (50, 55, 4 sets at 60%)",
+       "details": "go down slowly",
+       "video": "https://youtu.be/uHrM7nK-Zbk"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 50.0
+         }
+        }
+       ],
+       "prescription": "2x10 (50%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "adductor plank",
+       "kind": "core",
+       "sets": [
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg",
+       "video": "https://youtu.be/0oS8pbv3x44"
+      },
+      {
+       "exercise": "cable rotation",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "light"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "light"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (light)",
+       "video": "https://youtu.be/n8Fk8cGfels"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x15 each side (medium)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "drop landings",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "1x10",
+       "video": "https://youtu.be/RZXu6Z8IRnU"
+      },
+      {
+       "exercise": "rhythmic jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "2x10",
+       "video": "https://youtu.be/lrHoxs-jEGw"
+      },
+      {
+       "exercise": "easy running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x4",
+       "video": "https://youtu.be/r5izZCzfSRE"
+      },
+      {
+       "exercise": "split squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 25.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x10 each leg (25%)",
+       "video": "https://youtu.be/6WvI0IhOfY4"
+      },
+      {
+       "exercise": "hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x8 (medium, heavy)",
+       "details": "go down slowly",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium, heavy)",
+       "details": "go down slowly",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "line hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 20
+        },
+        {
+         "reps": 20
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x20 each leg",
+       "video": "https://youtu.be/d9jKVNne_d8"
+      },
+      {
+       "exercise": "deadlift",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 87.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 92.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 100.0
+         }
+        }
+       ],
+       "prescription": "12x1 (80% to 100% of max deep squat)",
+       "video": "https://youtu.be/sR37oV07Fng"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 25.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg (25%)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 8
+        },
+        {
+         "reps": 8
+        }
+       ],
+       "prescription": "2x8",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        }
+       ],
+       "prescription": "20m x2, 30m x4",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 4,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 75.0
+         }
+        }
+       ],
+       "prescription": "8x4 (50, 60, 70, 4 sets at 75%)",
+       "video": "https://youtu.be/9CXVJrSoqLU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 55.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "3x10 (50, 55, 60%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "side plank adduction",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side",
+       "video": "https://youtu.be/EV3FKAz8Ev0"
+      },
+      {
+       "exercise": "cable rotation",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (medium)",
+       "video": "https://youtu.be/n8Fk8cGfels"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "3x15 each side (medium)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "drop landings",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "1x15",
+       "video": "https://youtu.be/RZXu6Z8IRnU"
+      },
+      {
+       "exercise": "tuck jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "3x10",
+       "video": "https://youtu.be/5746q47c4eA"
+      },
+      {
+       "exercise": "box squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "4x5 (60%)",
+       "details": "up fast",
+       "video": "https://youtu.be/NHagTRrzELQ"
+      },
+      {
+       "exercise": "reverse lunges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 20,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 20,
+         "load": {
+          "percent": 30.0
+         }
+        }
+       ],
+       "prescription": "2x20 alternating legs (25, 30%)",
+       "details": "alternating legs",
+       "video": "https://youtu.be/iCo3HFCEfmg"
+      },
+      {
+       "exercise": "hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x10 (medium to heavy)",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "knee bends to 90",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium)",
+       "video": "https://youtu.be/-8xK4AbD98M"
+      }
+     ]
+    },
+    {
+     "title": "Day 4",
+     "restDaysBefore": 0,
+     "items": [
+      {
+       "exercise": "warmup jog",
+       "kind": "warmup",
+       "sets": [
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        }
+       ],
+       "prescription": "30 seconds x4"
+      },
+      {
+       "exercise": "easy running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/r5izZCzfSRE"
+      },
+      {
+       "exercise": "easy hops series",
+       "kind": "plyometric",
+       "sets": [
+        {}
+       ],
+       "prescription": "1 round",
+       "details": "round",
+       "video": "https://youtu.be/PRTo1kffPpA"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium, heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "line hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 20
+        },
+        {
+         "reps": 20
+        },
+        {
+         "reps": 20
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x20 each leg",
+       "video": "https://youtu.be/d9jKVNne_d8"
+      },
+      {
+       "exercise": "deadlift",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 87.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 87.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 92.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 92.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 100.0
+         }
+        }
+       ],
+       "prescription": "15x1 (80% to 100% of max deep squat)",
+       "video": "https://youtu.be/sR37oV07Fng"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 30.0
+         }
+        },
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg (30% up to heavy)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 8
+        },
+        {
+         "reps": 8
+        },
+        {
+         "reps": 8
+        }
+       ],
+       "prescription": "3x8",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        }
+       ],
+       "prescription": "20m x2, 30m x6",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 55.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 62.5
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 67.5
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 72.5
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 77.5
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 90.0
+         }
+        }
+       ],
+       "prescription": "10x3 (50% to 90%)",
+       "video": "https://youtu.be/9CXVJrSoqLU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 65.0
+         }
+        }
+       ],
+       "prescription": "3x10 (50, 60, 65%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "side plank adduction",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "side",
+       "prescription": "3x10 each side",
+       "video": "https://youtu.be/EV3FKAz8Ev0"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "3x15 each side (medium)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "drop landings",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "1x15",
+       "video": "https://youtu.be/RZXu6Z8IRnU"
+      },
+      {
+       "exercise": "rhythmic broad jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 3
+        },
+        {
+         "reps": 3
+        },
+        {
+         "reps": 3
+        },
+        {
+         "reps": 3
+        }
+       ],
+       "prescription": "4x3",
+       "video": "https://youtu.be/x8dmC2ERJ38"
+      },
+      {
+       "exercise": "medium hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x10 each leg",
+       "video": "https://youtu.be/bNRS3RvqKXI"
+      },
+      {
+       "exercise": "2/3 squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "4x5 (60%)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/uHrM7nK-Zbk"
+      },
+      {
+       "exercise": "reverse lunges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 16,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 16,
+         "load": {
+          "percent": 30.0
+         }
+        },
+        {
+         "reps": 16,
+         "load": {
+          "percent": 35.0
+         }
+        }
+       ],
+       "prescription": "3x16 alternating legs (25, 30, 35%)",
+       "details": "alternating legs",
+       "video": "https://youtu.be/iCo3HFCEfmg"
+      },
+      {
+       "exercise": "hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x10 (medium to heavy)",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "knee bends to 90",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "3x10 (medium)",
+       "video": "https://youtu.be/-8xK4AbD98M"
+      }
+     ]
+    },
+    {
+     "title": "Day 4",
+     "restDaysBefore": 0,
+     "items": [
+      {
+       "exercise": "warmup jog",
+       "kind": "warmup",
+       "sets": [
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        }
+       ],
+       "prescription": "30 seconds x4"
+      },
+      {
+       "exercise": "easy running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/r5izZCzfSRE"
+      },
+      {
+       "exercise": "easy hops series",
+       "kind": "plyometric",
+       "sets": [
+        {},
+        {}
+       ],
+       "prescription": "2 rounds",
+       "details": "round",
+       "video": "https://youtu.be/PRTo1kffPpA"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x10 (medium to heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        }
+       ],
+       "prescription": "20m x2, 30m x2",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "split squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 25.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x8 each leg (25%)",
+       "video": "https://youtu.be/6WvI0IhOfY4"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "6x1 (60, 70, 80, 90, 95%, heavy)",
+       "details": "this is a chance to max out",
+       "video": "https://youtu.be/9CXVJrSoqLU",
+       "gauge": "maxTest"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 40.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 40.0
+         }
+        }
+       ],
+       "prescription": "2x8 (40%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "easy hops series",
+       "kind": "plyometric",
+       "sets": [
+        {},
+        {}
+       ],
+       "prescription": "2 rounds",
+       "details": "round",
+       "video": "https://youtu.be/PRTo1kffPpA"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "1-leg squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "video": "https://youtu.be/kIDqLgGDP8Q"
+      },
+      {
+       "exercise": "hanging leg raises",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "2x10",
+       "details": "rhythmic version",
+       "video": "https://youtu.be/SBPMCBIUVDo"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        }
+       ],
+       "prescription": "20m x2, 30m x2, 40m x2",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "rhythmic jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "3x10",
+       "video": "https://youtu.be/lrHoxs-jEGw"
+      },
+      {
+       "exercise": "2/3 squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 4,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 4,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "5x4 (60, 70, 80, 85%, heavy)",
+       "video": "https://youtu.be/uHrM7nK-Zbk"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 55.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 65.0
+         }
+        }
+       ],
+       "prescription": "3x8 (55, 60, 65%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "side lunges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 6,
+         "load": {
+          "percent": 10.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 10.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x6 each leg (10%)",
+       "video": "https://youtu.be/Q2IxyjktddA"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "3x10 each side (medium)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "medium hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "1x10 each leg",
+       "video": "https://youtu.be/bNRS3RvqKXI"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "seated jumps to 1-leg landing",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        }
+       ],
+       "prescription": "4x4 (2 landings each leg)",
+       "details": "2 landings each leg; do in between sets of box squats",
+       "video": "https://youtu.be/cmiiY2k2mBE"
+      },
+      {
+       "exercise": "box squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        }
+       ],
+       "prescription": "4x5 (65%)",
+       "video": "https://youtu.be/NHagTRrzELQ"
+      },
+      {
+       "exercise": "deep split squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 10.0
+         }
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "4x5 each leg (10% up to medium)",
+       "video": "https://youtu.be/p_yWqeGpFOQ"
+      },
+      {
+       "exercise": "1-leg hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x8 each leg (medium to heavy)",
+       "video": "https://youtu.be/F26eHJo5edc"
+      }
+     ]
+    },
+    {
+     "title": "Day 4",
+     "restDaysBefore": 0,
+     "items": [
+      {
+       "exercise": "warmup jog",
+       "kind": "warmup",
+       "sets": [
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        }
+       ],
+       "prescription": "30 seconds x4"
+      },
+      {
+       "exercise": "easy running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x8",
+       "video": "https://youtu.be/r5izZCzfSRE"
+      },
+      {
+       "exercise": "cable rotation",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (medium)",
+       "video": "https://youtu.be/n8Fk8cGfels"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x8 (medium to heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "easy hops series",
+       "kind": "plyometric",
+       "sets": [
+        {},
+        {}
+       ],
+       "prescription": "2 rounds",
+       "details": "round",
+       "video": "https://youtu.be/PRTo1kffPpA"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "1-leg squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "video": "https://youtu.be/kIDqLgGDP8Q"
+      },
+      {
+       "exercise": "hanging leg raises",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 6
+        },
+        {
+         "reps": 6
+        }
+       ],
+       "prescription": "2x6",
+       "details": "slow version",
+       "video": "https://youtu.be/SBPMCBIUVDo"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        }
+       ],
+       "prescription": "20m x2, 30m x2, 40m x4",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "drop jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "details": "from ~75cm",
+       "video": "https://youtu.be/_GxzRSG648k",
+       "gauge": "reactive"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "6x3 (60, 70, 80, 85, 90%, heavy)",
+       "video": "https://youtu.be/9CXVJrSoqLU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 70.0
+         }
+        }
+       ],
+       "prescription": "3x8 (50, 60, 70%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "side lunges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 15.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 15.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x8 each leg (15%)",
+       "video": "https://youtu.be/Q2IxyjktddA"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "3x8 each side (medium to heavy)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "medium hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "1x10 each leg",
+       "video": "https://youtu.be/bNRS3RvqKXI"
+      },
+      {
+       "exercise": "hops for distance",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "details": "1-step approach",
+       "video": "https://youtu.be/Uwb4wQfwFsQ"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "2/3 squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 65.0
+         }
+        }
+       ],
+       "prescription": "4x5 (65%)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/uHrM7nK-Zbk"
+      },
+      {
+       "exercise": "deep split squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 10.0
+         }
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "4x5 each leg (10% up to medium)",
+       "video": "https://youtu.be/p_yWqeGpFOQ"
+      },
+      {
+       "exercise": "2 legs up, 1 leg down hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (heavy on the descent)",
+       "details": "heavy on the descent; 5 each leg alternating",
+       "video": "https://youtu.be/F26eHJo5edc"
+      }
+     ]
+    },
+    {
+     "title": "Day 4",
+     "restDaysBefore": 0,
+     "items": [
+      {
+       "exercise": "warmup jog",
+       "kind": "warmup",
+       "sets": [
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        },
+        {
+         "seconds": 30
+        }
+       ],
+       "prescription": "30 seconds x4"
+      },
+      {
+       "exercise": "easy running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x8",
+       "video": "https://youtu.be/r5izZCzfSRE"
+      },
+      {
+       "exercise": "cable rotation",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (medium)",
+       "video": "https://youtu.be/n8Fk8cGfels"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x8 (medium to heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "1-leg squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "details": "go down slowly",
+       "video": "https://youtu.be/kIDqLgGDP8Q"
+      },
+      {
+       "exercise": "extended plank",
+       "kind": "core",
+       "sets": [
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        }
+       ],
+       "prescription": "20 seconds x3",
+       "details": "slow version",
+       "video": "https://youtu.be/CQKnsFlvyWQ"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x2",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "deep pause squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 2,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 55.0
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 62.5
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 67.5
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 72.5
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 77.5
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 2,
+         "load": {
+          "percent": 90.0
+         }
+        }
+       ],
+       "prescription": "8x2 (50% to 90%)",
+       "details": "pause for 1 second at bottom",
+       "video": "https://youtu.be/9CXVJrSoqLU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "2x10 (60%)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x8 (medium, heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x8 (medium, heavy)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "medium hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "1x10 each leg",
+       "video": "https://youtu.be/bNRS3RvqKXI"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "seated jumps to 1-leg landing",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        }
+       ],
+       "prescription": "5x4 (2 landings each leg)",
+       "details": "2 landings each leg; do in between sets of box squats",
+       "video": "https://youtu.be/cmiiY2k2mBE"
+      },
+      {
+       "exercise": "box squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "5x3 (60, 65, 70, 75, 80%)",
+       "details": "up fast",
+       "video": "https://youtu.be/NHagTRrzELQ"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 25.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x2 each leg (25%)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "8x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "deadlift",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 87.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 92.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 100.0
+         }
+        }
+       ],
+       "prescription": "8x1 (80% to 100% of max deep squat)",
+       "video": "https://youtu.be/sR37oV07Fng"
+      },
+      {
+       "exercise": "knee bends to 90",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium)",
+       "video": "https://youtu.be/-8xK4AbD98M"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 8
+        },
+        {
+         "reps": 8
+        },
+        {
+         "reps": 8
+        }
+       ],
+       "prescription": "3x8",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x3",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "rhythmic broad jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        }
+       ],
+       "prescription": "4x4",
+       "video": "https://youtu.be/x8dmC2ERJ38"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 5,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "5x5 (60, 70, 75, 80%, heavy)",
+       "video": "https://youtu.be/9CXVJrSoqLU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 6,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 75.0
+         }
+        }
+       ],
+       "prescription": "4x6 (60, 65, 70, 75%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x8 (medium to heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "lying leg raises",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 12,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 12,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x12 (medium)",
+       "video": "https://youtu.be/emkWZ6G0dKI"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "medium hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "1x10 each leg",
+       "video": "https://youtu.be/bNRS3RvqKXI"
+      },
+      {
+       "exercise": "hops for distance",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "details": "1-step approach",
+       "video": "https://youtu.be/Uwb4wQfwFsQ"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "1x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "medium running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x4",
+       "video": "https://youtu.be/XAE9GK3H-14"
+      }
+     ]
+    },
+    {
+     "title": "Day 4",
+     "restDaysBefore": 0,
+     "items": [
+      {
+       "exercise": "short warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/QhxGWgAn2po"
+      },
+      {
+       "exercise": "2/3 squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 6,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 75.0
+         }
+        }
+       ],
+       "prescription": "4x6 (50, 60, 70, 75%)",
+       "video": "https://youtu.be/uHrM7nK-Zbk"
+      },
+      {
+       "exercise": "reverse lunges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 12,
+         "load": {
+          "percent": 30.0
+         }
+        },
+        {
+         "reps": 12,
+         "load": {
+          "percent": 35.0
+         }
+        },
+        {
+         "reps": 12,
+         "load": {
+          "percent": 40.0
+         }
+        }
+       ],
+       "prescription": "3x12 alternating legs (30, 35, 40%)",
+       "details": "alternating legs",
+       "video": "https://youtu.be/iCo3HFCEfmg"
+      },
+      {
+       "exercise": "2 legs up, 1 leg down hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (heavy on the descent)",
+       "details": "heavy on the descent; 5 each leg alternating",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "cable rotation",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (medium)",
+       "video": "https://youtu.be/n8Fk8cGfels"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "8x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "deadlift",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 82.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 87.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 92.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 97.5
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 100.0
+         }
+        }
+       ],
+       "prescription": "8x1 (80% to 100% of max deep squat)",
+       "video": "https://youtu.be/sR37oV07Fng"
+      },
+      {
+       "exercise": "knee bends to 90",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium)",
+       "video": "https://youtu.be/-8xK4AbD98M"
+      },
+      {
+       "exercise": "hanging leg raises",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "3x10",
+       "details": "rhythmic version",
+       "video": "https://youtu.be/SBPMCBIUVDo"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x4",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "rhythmic jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "3x10",
+       "video": "https://youtu.be/lrHoxs-jEGw"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "6x3 (60, 70, 75, 80, 85%, heavy)",
+       "video": "https://youtu.be/9CXVJrSoqLU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 6,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 75.0
+         }
+        }
+       ],
+       "prescription": "4x6 (60, 65, 70, 75%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "calf raises",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "3x8 (medium to heavy)",
+       "video": "https://youtu.be/Cw-dx9_gw4Q"
+      },
+      {
+       "exercise": "lying leg raises",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 12,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 12,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x12 (medium)",
+       "video": "https://youtu.be/emkWZ6G0dKI"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "medium hops",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "1x10 each leg",
+       "video": "https://youtu.be/bNRS3RvqKXI"
+      },
+      {
+       "exercise": "hops for distance",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "details": "1-step approach",
+       "video": "https://youtu.be/Uwb4wQfwFsQ"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "medium running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/XAE9GK3H-14"
+      }
+     ]
+    },
+    {
+     "title": "Day 4",
+     "restDaysBefore": 0,
+     "items": [
+      {
+       "exercise": "short warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/QhxGWgAn2po"
+      },
+      {
+       "exercise": "seated jumps to 1-leg landing",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        },
+        {
+         "reps": 4
+        }
+       ],
+       "prescription": "5x4 (2 landings each leg)",
+       "details": "2 landings each leg; do in between sets of box squats",
+       "video": "https://youtu.be/cmiiY2k2mBE"
+      },
+      {
+       "exercise": "box squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 85.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 90.0
+         }
+        }
+       ],
+       "prescription": "5x3 (60, 70, 80, 85, 90%)",
+       "details": "up fast",
+       "video": "https://youtu.be/NHagTRrzELQ"
+      },
+      {
+       "exercise": "deep split squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5,
+         "load": {
+          "percent": 10.0
+         }
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "4x5 each leg (10% up to medium)",
+       "video": "https://youtu.be/p_yWqeGpFOQ"
+      },
+      {
+       "exercise": "hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "cable rotation",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (medium)",
+       "video": "https://youtu.be/n8Fk8cGfels"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 15,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x15 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        }
+       ],
+       "prescription": "20m x2, 30m x2",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "rhythmic broad jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 3
+        },
+        {
+         "reps": 3
+        },
+        {
+         "reps": 3
+        }
+       ],
+       "prescription": "3x3",
+       "video": "https://youtu.be/x8dmC2ERJ38"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "deep squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 90.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 95.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "6x1 (60, 70, 80, 90, 95%, heavy)",
+       "details": "this is a chance to max out",
+       "video": "https://youtu.be/9CXVJrSoqLU",
+       "gauge": "maxTest"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 40.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 40.0
+         }
+        }
+       ],
+       "prescription": "2x8 (40%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      }
+     ]
+    }
+   ],
+   "decision": "If you have been getting stronger and more athletic over the last 6 weeks, you do not need to interrupt that process. Go back to week 5 and keep the gains rolling.\n\nIf you have been getting stronger but your jumping ability is lagging behind, move on to the explosive shift phase in weeks 11-16. The reduction in strength training and overall easier schedule should help athletic gains show up.\n\nIf you have not been getting stronger or jumping higher, take a couple easy weeks similar to week 10 but without the max squat. This should help your body get fresh. Examine your nutrition, sleep, stress, and sports schedule to try to figure out why you were not getting stronger. When you're ready you can restart the program at week 1.",
+   "decisionOptions": [
+    {
+     "label": "Keep the gains rolling",
+     "detail": "Stronger and jumping higher. Go back to week 5.",
+     "goToWeek": 5
+    },
+    {
+     "label": "Shift to explosive",
+     "detail": "Stronger, but jumping is lagging. Move on to weeks 11 to 16.",
+     "goToWeek": 11
+    },
+    {
+     "label": "Get fresh, then restart",
+     "detail": "Neither improved. Take a couple of easy weeks, check nutrition, sleep and stress, then restart at week 1.",
+     "goToWeek": 1
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "knee bends to 90",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "bodyweight": true
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "bodyweight": true
+         }
+        }
+       ],
+       "prescription": "2x10 (body weight)",
+       "video": "https://youtu.be/-8xK4AbD98M"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "2x10",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x4",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "drop jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "details": "from ~90cm",
+       "video": "https://youtu.be/QMps5yImAGE",
+       "gauge": "reactive"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 50.0
+         }
+        }
+       ],
+       "prescription": "2x8 (50%)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "adductor plank",
+       "kind": "core",
+       "sets": [
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg",
+       "video": "https://youtu.be/0oS8pbv3x44"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "hops for distance",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "details": "2-step approach",
+       "video": "https://youtu.be/Uwb4wQfwFsQ"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "rhythmic broad jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x8dmC2ERJ38"
+      },
+      {
+       "exercise": "medium running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/XAE9GK3H-14"
+      },
+      {
+       "exercise": "hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium)",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "knee bends to 90",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "bodyweight": true
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "bodyweight": true
+         }
+        }
+       ],
+       "prescription": "2x10 (body weight)",
+       "video": "https://youtu.be/-8xK4AbD98M"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "2x10",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x4",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "drop jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "details": "from ~90cm",
+       "video": "https://youtu.be/QMps5yImAGE",
+       "gauge": "reactive"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "2x8 (60%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "adductor plank",
+       "kind": "core",
+       "sets": [
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        },
+        {
+         "seconds": 20
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg",
+       "video": "https://youtu.be/0oS8pbv3x44"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "hops for distance",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "details": "2-step approach",
+       "video": "https://youtu.be/Uwb4wQfwFsQ"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "rhythmic broad jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "4x5",
+       "video": "https://youtu.be/x8dmC2ERJ38"
+      },
+      {
+       "exercise": "medium running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/XAE9GK3H-14"
+      },
+      {
+       "exercise": "hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "prescription": "2x10 (medium)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg (20%)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        }
+       ],
+       "prescription": "20m x2, 40m x4",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 50.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 50.0
+         }
+        }
+       ],
+       "prescription": "2x8 (50%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "cable knee drives",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side (medium)",
+       "video": "https://youtu.be/ZVnCUnOEqtw"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "box squats",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 65.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 70.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 75.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "5x3 (60, 65, 70, 75, 80%)",
+       "details": "up fast",
+       "video": "https://youtu.be/NHagTRrzELQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg (20%)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "2x10",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x5",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "drop jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "4x5",
+       "details": "from ~90cm",
+       "video": "https://youtu.be/QMps5yImAGE",
+       "gauge": "reactive"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "2x8 (60%)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "side plank adduction",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side",
+       "video": "https://youtu.be/EV3FKAz8Ev0"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "medium running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/XAE9GK3H-14"
+      },
+      {
+       "exercise": "weighted jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 3,
+         "load": {
+          "percent": 30.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 30.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 30.0
+         }
+        },
+        {
+         "reps": 3,
+         "load": {
+          "percent": 30.0
+         }
+        }
+       ],
+       "prescription": "4x3 (30%)",
+       "video": "https://youtu.be/g2dHm9FELo0"
+      },
+      {
+       "exercise": "lunge jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 12
+        },
+        {
+         "reps": 12
+        }
+       ],
+       "prescription": "2x12",
+       "video": "https://youtu.be/5Lsj-lVbD1Y"
+      },
+      {
+       "exercise": "1-leg hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x10 each leg (medium)",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      },
+      {
+       "exercise": "clean pulls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        },
+        {
+         "reps": 1,
+         "load": {
+          "percent": 80.0
+         }
+        }
+       ],
+       "prescription": "10x1 (80% of max deep squat)",
+       "video": "https://youtu.be/_uaWxDxGGlE",
+       "gauge": "barSpeed"
+      },
+      {
+       "exercise": "split squat isometric hold",
+       "kind": "isometric",
+       "sets": [
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        },
+        {
+         "seconds": 20,
+         "load": {
+          "percent": 20.0
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "20 seconds x3 each leg (20%)",
+       "video": "https://youtu.be/ni6_0WU5_TQ"
+      },
+      {
+       "exercise": "ab rollouts",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "prescription": "2x10",
+       "video": "https://youtu.be/e3u-Gk3eK5s"
+      },
+      {
+       "exercise": "pull-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "3x5",
+       "video": "https://youtu.be/x-ODOYVehfs"
+      },
+      {
+       "exercise": "push-ups",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        },
+        {
+         "reps": 15
+        }
+       ],
+       "prescription": "3x15",
+       "video": "https://youtu.be/jyDGIidtcVY"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 40
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        },
+        {
+         "meters": 60
+        }
+       ],
+       "prescription": "20m x2, 40m x2, 60m x5",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "drop jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "4x5",
+       "details": "from ~90cm",
+       "video": "https://youtu.be/QMps5yImAGE",
+       "gauge": "reactive"
+      },
+      {
+       "exercise": "hip hinges",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        },
+        {
+         "reps": 8,
+         "load": {
+          "percent": 60.0
+         }
+        }
+       ],
+       "prescription": "2x8 (60%)",
+       "video": "https://youtu.be/-RpjqhPq818"
+      },
+      {
+       "exercise": "side plank adduction",
+       "kind": "core",
+       "sets": [
+        {
+         "reps": 10
+        },
+        {
+         "reps": 10
+        }
+       ],
+       "perSide": "side",
+       "prescription": "2x10 each side",
+       "video": "https://youtu.be/EV3FKAz8Ev0"
+      }
+     ]
+    },
+    {
+     "title": "Day 3",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "warmup B",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/q4v3UNHbFws"
+      },
+      {
+       "exercise": "hops with a tuck",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "3x5 each leg",
+       "video": "https://youtu.be/pnUq9v7Pna4"
+      },
+      {
+       "exercise": "medium running",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        },
+        {
+         "meters": 100
+        }
+       ],
+       "prescription": "100m x6",
+       "video": "https://youtu.be/XAE9GK3H-14"
+      },
+      {
+       "exercise": "rhythmic weighted jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 6,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 25.0
+         }
+        },
+        {
+         "reps": 6,
+         "load": {
+          "percent": 25.0
+         }
+        }
+       ],
+       "prescription": "4x6 (25%)",
+       "video": "https://youtu.be/g2dHm9FELo0"
+      },
+      {
+       "exercise": "lunge jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 12
+        },
+        {
+         "reps": 12
+        },
+        {
+         "reps": 12
+        }
+       ],
+       "prescription": "3x12",
+       "video": "https://youtu.be/5Lsj-lVbD1Y"
+      },
+      {
+       "exercise": "1-leg hamstring curls",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "medium"
+         }
+        }
+       ],
+       "perSide": "leg",
+       "prescription": "2x10 each leg (medium)",
+       "details": "down fast, up fast",
+       "video": "https://youtu.be/F26eHJo5edc"
+      },
+      {
+       "exercise": "dorsiflexion",
+       "kind": "strength",
+       "sets": [
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        },
+        {
+         "reps": 10,
+         "load": {
+          "effort": "heavy"
+         }
+        }
+       ],
+       "prescription": "2x10 (heavy)",
+       "video": "https://youtu.be/I-EXey712yQ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "days": [
+    {
+     "title": "Day 1",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "sprint warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/-O-XhITXpV8"
+      },
+      {
+       "exercise": "sprint",
+       "kind": "sprint",
+       "sets": [
+        {
+         "meters": 20
+        },
+        {
+         "meters": 20
+        },
+        {
+         "meters": 30
+        },
+        {
+         "meters": 30
+        }
+       ],
+       "prescription": "20m x2, 30m x2",
+       "details": "rest 1 minute for every 10m sprinted",
+       "video": "https://youtu.be/WMvTmYL-IgU"
+      },
+      {
+       "exercise": "drop jumps",
+       "kind": "plyometric",
+       "sets": [
+        {
+         "reps": 5
+        },
+        {
+         "reps": 5
+        }
+       ],
+       "prescription": "2x5",
+       "details": "from ~90cm",
+       "video": "https://youtu.be/QMps5yImAGE",
+       "gauge": "reactive"
+      }
+     ]
+    },
+    {
+     "title": "Day 2",
+     "restDaysBefore": 1,
+     "items": [
+      {
+       "exercise": "jump session warmup",
+       "kind": "warmup",
+       "sets": [],
+       "video": "https://youtu.be/pPF7B9H7s7Q"
+      },
+      {
+       "exercise": "jump session",
+       "kind": "plyometric",
+       "sets": [],
+       "video": "https://youtu.be/14OPrYF_8yU"
+      }
+     ]
+    }
+   ],
+   "decision": "After the last six weeks, most athletes are probably in a good spot to start strength training again. However if you have jumped progressively higher throughout the explosive shift phase, you have the option to repeat some or all of weeks 11-16 to see if there are still gains to be had from minimizing strength training.\n\nIf your jumping has been stagnant or has decreased in the last 6 weeks, your body still has had a chance to shift explosively and get fresh. You should be ready to benefit from strength training again. Re- start the program and expect good things.\n\nRegardless of results, you also have the option of taking some time away from training to completely rest up.",
+   "decisionOptions": [
+    {
+     "label": "Repeat the explosive shift",
+     "detail": "Jumping kept climbing. Repeat some or all of weeks 11 to 16.",
+     "goToWeek": 11
+    },
+    {
+     "label": "Back to strength",
+     "detail": "Jumping stalled or dropped. Restart the program at week 1.",
+     "goToWeek": 1
+    }
+   ]
+  }
+ ],
+ "asNeeded": [
+  {
+   "title": "Patellar tendon",
+   "items": [
+    {
+     "exercise": "straight leg quad iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x2 each leg",
+     "video": "https://youtu.be/DQ7CMdOa2qg"
+    },
+    {
+     "exercise": "45 degree quad iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x2 each leg",
+     "video": "https://youtu.be/lbigtiO9slw"
+    },
+    {
+     "exercise": "90 degree quad iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x2 each leg",
+     "video": "https://youtu.be/1rAE7BxICiA"
+    },
+    {
+     "exercise": "deep flexion quad iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x2 each leg",
+     "video": "https://youtu.be/ef2KmUe0lVo"
+    },
+    {
+     "exercise": "rectus femoris iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x2 each leg",
+     "video": "https://youtu.be/B-xWq-g4knw"
+    }
+   ]
+  },
+  {
+   "title": "Achilles tendon",
+   "items": [
+    {
+     "exercise": "calf iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x3 each leg",
+     "video": "https://youtube.com/shorts/AqmtElY8-t4"
+    }
+   ]
+  },
+  {
+   "title": "IT band / patellar tendon",
+   "items": [
+    {
+     "exercise": "IT band iso",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x3 each leg",
+     "video": "https://youtu.be/Zyn8q5NnHdE"
+    }
+   ]
+  },
+  {
+   "title": "Medial shin",
+   "items": [
+    {
+     "exercise": "shin isometric hold",
+     "kind": "isometric",
+     "sets": [
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      },
+      {
+       "seconds": 30
+      }
+     ],
+     "perSide": "leg",
+     "prescription": "30 seconds x3 each leg",
+     "video": "https://youtu.be/lt5kupB6HtI"
+    }
+   ]
+  },
+  {
+   "title": "Daily stretches",
+   "items": [
+    {
+     "exercise": "glute and piriformis stretches",
+     "kind": "mobility",
+     "sets": [],
+     "prescription": "as needed",
+     "video": "https://youtu.be/4WAbr1mI1Ns"
+    },
+    {
+     "exercise": "hip flexor and rectus femoris stretches",
+     "kind": "mobility",
+     "sets": [],
+     "prescription": "as needed",
+     "video": "https://youtu.be/AQCkkyOSHc8"
+    },
+    {
+     "exercise": "hamstring stretches",
+     "kind": "mobility",
+     "sets": [],
+     "prescription": "as needed",
+     "video": "https://youtu.be/ppq4crJdpkI"
+    },
+    {
+     "exercise": "adductor stretches",
+     "kind": "mobility",
+     "sets": [],
+     "prescription": "as needed",
+     "video": "https://youtu.be/uRDFbWcAEGU"
+    }
+   ]
+  }
+ ]
+}

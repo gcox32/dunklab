@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Xcode per-user state (window layout, breakpoints, personal schemes)
+xcuserdata/
+*.xcuserstate
+
+# Build output (xcodebuild -derivedDataPath build/...) and Xcode's default
+build/
+DerivedData/
+*.xcresult
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Python (Tools/extract_program.py)
+__pycache__/
+*.pyc
+
+# Source PDFs the tools read from: copyrighted, regenerate data from your own copy
+*.pdf
