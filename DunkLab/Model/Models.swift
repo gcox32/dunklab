@@ -195,6 +195,14 @@ nonisolated enum JumpTestKind: String, Codable, CaseIterable, Identifiable {
     var isRebound: Bool { self != .cmj }
 }
 
+/// How a test was timed.
+nonisolated enum JumpSource: String, Codable {
+    /// Moments marked by hand on a Slo-Mo clip.
+    case video
+    /// Moments found in the accelerometer trace of a phone worn at the waist.
+    case motion
+}
+
 /// Three marked moments in one rep, in seconds of real time from the clip.
 nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     var id = UUID()
@@ -218,6 +226,10 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     var repsData: Data = Data()
     /// The workout it was measured in, if any.
     var log: WorkoutLog?
+    /// Nil for tests from before motion timing, which were all video.
+    var sourceRaw: String?
+    /// For motion tests, the accelerometer trace (see MotionTrace), kept so reps can be found again.
+    var traceData: Data?
 
     init(date: Date = .now, kind: JumpTestKind, boxHeightIn: Double? = nil, reps: [JumpRep]) {
         self.date = date
@@ -227,6 +239,7 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     }
 
     var kind: JumpTestKind { JumpTestKind(rawValue: kindRaw) ?? .dropJump }
+    var source: JumpSource { sourceRaw.flatMap(JumpSource.init) ?? .video }
 
     var reps: [JumpRep] {
         get { JSONField.decode(repsData, as: [JumpRep].self, default: []) }

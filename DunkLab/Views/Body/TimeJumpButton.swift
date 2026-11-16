@@ -2,9 +2,9 @@ import PhotosUI
 import SwiftData
 import SwiftUI
 
-/// Pick a Slo-Mo clip and mark it. Used on the Body tab and on a workout's drop jumps.
+/// Pick a Slo-Mo clip and mark it.
 struct TimeJumpButton: View {
-    var title = "Time a jump from a Slo-Mo clip"
+    var title = "Use Slo-mo Video"
     /// The workout to attach the test to, if any.
     var log: WorkoutLog?
     /// The box height the workout calls for, if it says.
@@ -57,7 +57,8 @@ struct JumpTestRow: View {
             Text(summary).monospacedDigit()
         } label: {
             if showDate { Text(test.date.formatted(date: .abbreviated, time: .omitted)) }
-            Text(test.kind.label + (test.boxHeightIn.map { ", \(Fmt.inches($0)) box" } ?? ""))
+            Text(test.kind.label + (test.boxHeightIn.map { ", \(Fmt.inches($0)) box" } ?? "")
+                 + (test.source == .motion ? ", motion" : ""))
         }
     }
 
@@ -74,7 +75,8 @@ struct ReactiveEntryRows: View {
 
     var body: some View {
         ForEach(log.jumpTests.sorted { $0.date < $1.date }) { JumpTestRow(test: $0, showDate: false) }
-        TimeJumpButton(title: log.jumpTests.isEmpty ? "Time a rep from a Slo-Mo clip" : "Time another clip",
-                       log: log, boxHeightIn: Reactive.boxHeightIn(fromDetails: entry.details))
+        let box = Reactive.boxHeightIn(fromDetails: entry.details)
+        TimeJumpButton(log: log, boxHeightIn: box)
+        MotionJumpButton(log: log, boxHeightIn: box)
     }
 }

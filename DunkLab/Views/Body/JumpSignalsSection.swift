@@ -19,20 +19,23 @@ struct JumpSignalsSection: View {
             weights: entries.compactMap { entry in entry.weightLb.map { (entry.date, $0) } })
     }
 
-    /// RSI is only comparable within one kind of test, so chart the kind tested most recently.
+    /// RSI is only comparable within one kind of test, and until motion timing is
+    /// checked against video, one way of timing. Chart whatever was tested most recently.
     private var rsiKind: JumpTestKind? { tests.last?.kind }
+    private var rsiSource: JumpSource? { tests.last?.source }
 
     private var rsi: [SignalPoint] {
-        guard let rsiKind else { return [] }
-        return Signals.rsi(tests.filter { $0.kind == rsiKind }.map { ($0.date, $0.best?.rsi) })
+        guard let rsiKind, let rsiSource else { return [] }
+        return Signals.rsi(tests.filter { $0.kind == rsiKind && $0.source == rsiSource }.map { ($0.date, $0.best?.rsi) })
     }
 
     private var rsiTitle: String {
-        switch rsiKind {
+        let title = switch rsiKind {
         case .cmj: "RSI-mod, CMJ"
         case .pogo: "RSI, pogo hops"
         default: "RSI, drop jump"
         }
+        return rsiSource == .motion ? title + ", motion" : title
     }
 
     var body: some View {

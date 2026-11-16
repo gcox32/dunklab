@@ -190,7 +190,7 @@ struct JumpMarkerView: View {
     }
 }
 
-private struct RepRow: View {
+struct RepRow: View {
     let number: Int
     let rep: JumpRep
     let kind: JumpTestKind
@@ -292,6 +292,9 @@ struct SaveJumpTestSheet: View {
     let recordedAt: Date?
     var log: WorkoutLog?
     var suggestedBoxIn: Double?
+    var source: JumpSource = .video
+    /// The accelerometer trace, for a motion test.
+    var trace: Data?
     var onSaved: () -> Void
 
     @Environment(\.modelContext) private var context
@@ -328,6 +331,8 @@ struct SaveJumpTestSheet: View {
                     Button("Save") {
                         let test = JumpTest(date: date, kind: kind,
                                             boxHeightIn: kind == .dropJump ? boxHeight : nil, reps: reps)
+                        test.sourceRaw = source.rawValue
+                        test.traceData = trace
                         context.insert(test)
                         test.log = log
                         try? context.save()

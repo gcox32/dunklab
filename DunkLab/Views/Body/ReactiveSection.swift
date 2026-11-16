@@ -10,6 +10,7 @@ struct ReactiveSection: View {
     var body: some View {
         Section {
             TimeJumpButton()
+            MotionJumpButton()
 
             ForEach(tests) { JumpTestRow(test: $0) }
                 .onDelete { offsets in
@@ -18,7 +19,7 @@ struct ReactiveSection: View {
         } header: {
             SectionTitle("Reactive strength")
         } footer: {
-            Text("Film in the Camera app's Slo-Mo mode with the phone low and your feet in frame. Hands on hips, and land where you took off. A drop jump off a box about a foot high is the standard test.")
+            Text("Film in the Camera app's Slo-Mo mode with the phone low and your feet in frame, or wear the phone at your waist and let the motion sensor time it. Hands on hips, and land where you took off. A drop jump off a box about a foot high is the standard test.")
         }
     }
 }
