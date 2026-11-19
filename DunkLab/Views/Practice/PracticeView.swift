@@ -14,6 +14,8 @@ struct PracticeView: View {
     @State private var pending: PracticeSession?
     @State private var live: PracticeSession?
     @State private var loggingTouch = false
+    // Debug builds accept `-open library` to start on the library.
+    @State private var showingLibrary = UserDefaults.standard.string(forKey: "open") == "library"
 
     private var progress: DunkProgress { DunkProgress(stages: stages, sessions: sessions) }
     private var goal: DunkStage? { progress.goal }
@@ -80,6 +82,7 @@ struct PracticeView: View {
             }
             .navigationTitle("Practice")
             .libraryButton()
+            .navigationDestination(isPresented: $showingLibrary) { ClipLibraryView() }
             .sheet(isPresented: $settingUp, onDismiss: {
                 live = pending
                 pending = nil
@@ -208,7 +211,9 @@ struct PracticeSetupView: View {
     @State private var cue = ""
     @State private var stage = ""
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             Form {
                 Section {

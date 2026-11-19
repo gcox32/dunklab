@@ -156,7 +156,9 @@ struct StrengthTestSheet: View {
     @State private var weight: Double?
     @State private var date = Date.now
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             Form {
                 MeasureField("Max deep squat", value: $weight, unit: "lb")
@@ -223,7 +225,9 @@ struct WorkoutLogDetail: View {
     @State private var confirmDelete = false
     @State private var deleteOnExit = false
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         List {
             if log.finishedAt == nil {
                 Section {

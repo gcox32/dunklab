@@ -18,7 +18,9 @@ struct OnboardingView: View {
 
     private var canStart: Bool { height != nil && reach != nil && weight != nil }
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             Form {
                 Section {

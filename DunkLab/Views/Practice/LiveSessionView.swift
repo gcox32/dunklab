@@ -247,7 +247,9 @@ struct EndSessionSheet: View {
 
     private var stage: DunkStage? { stages.first { $0.name == session.stage } }
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             Form {
                 Section {
@@ -375,7 +377,9 @@ struct SessionDetail: View {
     @State private var confirmDelete = false
     @State private var deleteOnExit = false
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             if session.finishedAt == nil {
                 Section {

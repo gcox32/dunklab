@@ -12,9 +12,10 @@ struct ClipLibraryView: View {
     @State private var importing: (done: Int, total: Int)?
     @State private var importNote: String?
     @State private var opened: Clip?
+    @State private var deleting: Clip?
 
     enum Filter: String, CaseIterable, Identifiable {
-        case all = "All", makes = "Makes", attempts = "Attempts", tests = "Tests", favorites = "Starred"
+        case all = "All", makes = "Makes", attempts = "Attempts", tests = "Tests", favorites = "Favorites"
         var id: String { rawValue }
 
         func includes(_ clip: Clip) -> Bool {
@@ -33,7 +34,13 @@ struct ClipLibraryView: View {
     var body: some View {
         ScrollView {
             Picker("Show", selection: $filter) {
-                ForEach(Filter.allCases) { Text($0.rawValue).tag($0) }
+                ForEach(Filter.allCases) { filter in
+                    if filter == .favorites {
+                        Image(systemName: "heart.fill").accessibilityLabel(filter.rawValue).tag(filter)
+                    } else {
+                        Text(filter.rawValue).tag(filter)
+                    }
+                }
             }
             .pickerStyle(.segmented)
             .padding(.horizontal, 16)
@@ -63,6 +70,14 @@ struct ClipLibraryView: View {
                     ForEach(shown) { clip in
                         NavigationLink { ClipDetailView(clip: clip) } label: { ClipTile(clip: clip) }
                             .buttonStyle(.plain)
+                            .contextMenu {
+                                Button(clip.isFavorite ? "Remove from Favorites" : "Favorite",
+                                       systemImage: clip.isFavorite ? "heart.slash" : "heart") {
+                                    clip.isFavorite.toggle()
+                                    Task { await ClipSync.shared.refreshManifest(clip) }
+                                }
+                                Button("Delete", systemImage: "trash", role: .destructive) { deleting = clip }
+                            }
                     }
                 }
                 .padding(.horizontal, 4)
@@ -71,21 +86,29 @@ struct ClipLibraryView: View {
         .background(Palette.backboard)
         .navigationTitle("Library")
         .toolbar {
+            // One way in for new clips. Clip storage lives in Settings.
             ToolbarItem(placement: .primaryAction) {
-                PhotosPicker(selection: $picks, maxSelectionCount: 20, matching: .videos, photoLibrary: .shared()) {
-                    Label("Add from Photos", systemImage: "photo.badge.plus")
+                Menu {
+                    PhotosPicker(selection: $picks, maxSelectionCount: 20, matching: .videos, photoLibrary: .shared()) {
+                        Label("Add from Photos", systemImage: "photo.on.rectangle")
+                    }
+                    Button { filmingTest = true } label: { Label("Film a jump test", systemImage: "video") }
+                } label: {
+                    Label("Add", systemImage: "plus")
                 }
                 .disabled(importing != nil)
-            }
-            ToolbarItem(placement: .primaryAction) {
-                Button { filmingTest = true } label: { Label("Film a jump test", systemImage: "video.badge.plus") }
-            }
-            ToolbarItem(placement: .secondaryAction) {
-                NavigationLink { CloudSettingsView() } label: { Label("Clip storage", systemImage: "icloud") }
             }
         }
         .fullScreenCover(isPresented: $filmingTest) { FilmJumpTestView() }
         .navigationDestination(item: $opened) { ClipDetailView(clip: $0) }
+        .confirmationDialog("Delete this clip?", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }),
+                            titleVisibility: .visible, presenting: deleting) { clip in
+            Button("Delete clip", role: .destructive) { ClipLibrary.delete(clip, from: context) }
+        } message: { clip in
+            Text(clip.jumpTest != nil
+                 ? "It's deleted from this phone and the cloud. The jump test measured on it stays."
+                 : "It's deleted from this phone and the cloud.")
+        }
         .onChange(of: picks) { _, items in
             guard !items.isEmpty else { return }
             picks = []
@@ -158,7 +181,7 @@ struct ClipTile: View {
                 HStack(spacing: 4) {
                     Text(badge)
                     Spacer(minLength: 0)
-                    if clip.isFavorite { Image(systemName: "star.fill") }
+                    if clip.isFavorite { Image(systemName: "heart.fill") }
                     switch clip.uploadState {
                     case .uploaded where !clip.hasLocalFile: Image(systemName: "icloud")
                     case .failed: Image(systemName: "exclamationmark.icloud")

@@ -39,7 +39,7 @@ To install on your phone, pick your team under Signing & Capabilities.
   0-based day, e.g. the week 4 max-out day.
 - `-landedOnce YES` (with the fixture): the two-hand dunk landed in one session, not yet owned.
 - `-touchHistory YES` (with the fixture): adds a best touch from 40 days ago.
-- `-open workout` (with `-tab today`) or `-open session` (with `-tab practice`):
+- `-open workout` (with `-tab today`), or `-open session` or `-open library` (with `-tab practice`):
   opens the live workout or practice screen.
 
 ## Later

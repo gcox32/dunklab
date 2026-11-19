@@ -9,7 +9,9 @@ struct PlanDayEditor: View {
     @Environment(\.dismiss) private var dismiss
     @State private var newItem: PlanItem?
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             Section {
                 TextField("Workout name", text: $day.title)
@@ -97,7 +99,9 @@ struct PlanItemEditor: View {
             .sorted().prefix(5).map { $0 }
     }
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             Section {
                 TextField("Exercise", text: $item.exercise)

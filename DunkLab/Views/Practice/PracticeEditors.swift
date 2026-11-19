@@ -43,7 +43,9 @@ private struct StageForm: View {
     @Query(sort: \DunkStage.order) private var stages: [DunkStage]
     @Query private var sessions: [PracticeSession]
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             TextField("Name", text: $stage.name)
             TextField("Notes", text: $stage.detail, axis: .vertical)
@@ -107,7 +109,9 @@ struct FocusEditor: View {
 private struct FocusForm: View {
     @Bindable var focus: PracticeFocus
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             TextField("Name", text: $focus.name)
             TextField("Cue", text: $focus.cue, axis: .vertical)

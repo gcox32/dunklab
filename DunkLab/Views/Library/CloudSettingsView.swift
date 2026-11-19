@@ -23,7 +23,9 @@ struct CloudSettingsView: View {
     private var uploaded: [Clip] { clips.filter { $0.uploadState == .uploaded } }
     private var freeable: [Clip] { uploaded.filter(\.hasLocalFile) }
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             Section {
                 LabeledContent("Clips", value: "\(clips.count)")
@@ -44,7 +46,7 @@ struct CloudSettingsView: View {
                 if let error = sync.lastError {
                     Text("Last upload failed: \(error)").foregroundStyle(Palette.vaneRed)
                 } else {
-                    Text("Clips upload on their own when the app opens and after a session. Once uploaded, a clip's phone copy clears \(ClipSync.keepLocalDays) days after you last open it, unless it's starred; it then plays from the cloud.")
+                    Text("Clips upload on their own when the app opens and after a session. Once uploaded, a clip's phone copy clears \(ClipSync.keepLocalDays) days after you last open it, unless it's a favorite; it then plays from the cloud.")
                 }
             }
 

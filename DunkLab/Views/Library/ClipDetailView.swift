@@ -19,7 +19,9 @@ struct ClipDetailView: View {
     /// Real time down to an eighth: at 240 fps an eighth still shows every frame.
     private let speeds: [(Float, String)] = [(1, "1×"), (0.5, "½×"), (0.25, "¼×"), (0.125, "⅛×")]
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             Section {
                 if clip.hasLocalFile || streamURL != nil {
@@ -42,7 +44,7 @@ struct ClipDetailView: View {
             Section {
                 TextField("Caption", text: $clip.caption, axis: .vertical)
                     .lineLimit(1...4)
-                Toggle("Starred", isOn: $clip.isFavorite)
+                Toggle("Favorite", isOn: $clip.isFavorite)
             }
 
             Section {
@@ -174,7 +176,7 @@ struct ClipDetailView: View {
             if clip.uploadState == .failed, let error = sync.lastError {
                 Text(error)
             } else if clip.uploadState == .uploaded && clip.hasLocalFile {
-                Text("Safe in the cloud. The phone copy (\(sizeText)) clears itself \(ClipSync.keepLocalDays) days after you last open it, unless it's starred.")
+                Text("Safe in the cloud. The phone copy (\(sizeText)) clears itself \(ClipSync.keepLocalDays) days after you last open it, unless it's a favorite.")
             } else if clip.uploadState == .uploaded {
                 Text("Plays from the cloud. Save it to the phone to watch without signal.")
             }

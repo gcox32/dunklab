@@ -126,9 +126,32 @@ nonisolated struct ClipManifest: Codable, Sendable {
 
     /// Rewrites a clip's manifest after a caption or test changes. Quiet on failure.
     func refreshManifest(_ clip: Clip) async {
-        guard clip.uploadState == .uploaded, let client = CloudConfig.client, let video = clip.remoteKey else { return }
+        // A deleted clip must not write its manifest back after the delete removed it.
+        guard !deleted.contains(clip.id), !clip.isDeleted, clip.modelContext != nil,
+              clip.uploadState == .uploaded, let client = CloudConfig.client, let video = clip.remoteKey else { return }
         let key = String(video.dropLast(".mov".count)) + ".json"
-        try? await client.put(data: Self.manifest(clip), key: key, contentType: "application/json")
+        let data = Self.manifest(clip)
+        let id = clip.id
+        let write = Task { _ = try? await client.put(data: data, key: key, contentType: "application/json") }
+        manifestWrites[id] = write
+        await write.value
+        if manifestWrites[id] == write { manifestWrites[id] = nil }
+    }
+
+    /// Clips deleted this run, so nothing writes their manifest again.
+    private var deleted: Set<UUID> = []
+    /// Called the moment a clip is deleted, before anything else can run.
+    func markDeleted(_ id: UUID) { deleted.insert(id) }
+
+    /// Manifest uploads in flight, so a delete can wait them out rather than race them.
+    private var manifestWrites: [UUID: Task<Void, Never>] = [:]
+
+    /// Marks a clip deleted, then removes its video and manifest from the bucket
+    /// once any manifest upload already under way has finished.
+    func deleteRemote(id: UUID, key: String?) async {
+        markDeleted(id)
+        await manifestWrites[id]?.value
+        await deleteRemote(key: key)
     }
 
     /// clips/2026/11/<id>: grouped by month so the bucket is browsable.
@@ -175,7 +198,7 @@ nonisolated struct ClipManifest: Codable, Sendable {
     }
 
     /// Deletes the clip's objects from the bucket. Quiet on failure: an orphan costs pennies.
-    func deleteRemote(key: String?) async {
+    private func deleteRemote(key: String?) async {
         guard let key, let client = CloudConfig.client else { return }
         let stem = String(key.dropLast(".mov".count))
         try? await client.delete(key: stem + ".mov")

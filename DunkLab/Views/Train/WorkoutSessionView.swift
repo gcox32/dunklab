@@ -66,7 +66,9 @@ struct WorkoutSessionView: View {
 
     private var currentMax: Double? { tests.first?.weightLb }
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             List {
                 ForEach(log.sortedEntries) { entry in

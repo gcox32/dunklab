@@ -12,7 +12,9 @@ struct BodyView: View {
     private var latestWeight: BodyEntry? { entries.first { $0.weightLb != nil } }
     private var latestFat: BodyEntry? { entries.first { $0.bodyFatPct != nil } }
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             List {
                 Section {
@@ -139,7 +141,9 @@ struct BodyEntrySheet: View {
     @State private var fat: Double?
     @State private var date = Date.now
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             Form {
                 MeasureField("Weight", value: $weight, unit: "lb", prompt: lastWeight.map { Fmt.number($0) } ?? "")
@@ -168,7 +172,9 @@ struct BodyEntrySheet: View {
 struct SettingsView: View {
     @Bindable var athlete: Athlete
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         Form {
             Section {
                 MeasureField("Rim height", value: $athlete.rimHeightIn.optional, unit: "in", showFeet: true)

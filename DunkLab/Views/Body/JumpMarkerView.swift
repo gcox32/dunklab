@@ -319,7 +319,9 @@ struct SaveJumpTestSheet: View {
     @State private var boxHeight: Double?
     @State private var date = Date.now
 
-    var body: some View {
+    var body: some View { screenBody.keyboardDoneButton() }
+
+    @ViewBuilder private var screenBody: some View {
         NavigationStack {
             Form {
                 Section {

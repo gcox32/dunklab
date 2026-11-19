@@ -169,7 +169,9 @@ enum ClipLibrary {
     /// Deletes the clip and its files.
     static func delete(_ clip: Clip, from context: ModelContext) {
         let remote = clip.remoteKey
-        Task { await ClipSync.shared.deleteRemote(key: remote) }
+        let id = clip.id
+        ClipSync.shared.markDeleted(id)
+        Task { await ClipSync.shared.deleteRemote(id: id, key: remote) }
         try? FileManager.default.removeItem(at: clip.fileURL)
         try? FileManager.default.removeItem(at: clip.posterURL)
         context.delete(clip)
