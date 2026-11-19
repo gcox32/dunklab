@@ -9,6 +9,7 @@ struct ClipLibraryView: View {
     @State private var filter: Filter = .all
     @State private var filmingTest = false
     @State private var picks: [PhotosPickerItem] = []
+    @State private var pickingPhotos = false
     @State private var importing: (done: Int, total: Int)?
     @State private var importNote: String?
     @State private var opened: Clip?
@@ -89,7 +90,9 @@ struct ClipLibraryView: View {
             // One way in for new clips. Clip storage lives in Settings.
             ToolbarItem(placement: .primaryAction) {
                 Menu {
-                    PhotosPicker(selection: $picks, maxSelectionCount: 20, matching: .videos, photoLibrary: .shared()) {
+                    // A PhotosPicker can't open from inside a menu: the menu closes
+                    // and takes it with it. The button raises it from the screen instead.
+                    Button { pickingPhotos = true } label: {
                         Label("Add from Photos", systemImage: "photo.on.rectangle")
                     }
                     Button { filmingTest = true } label: { Label("Film a jump test", systemImage: "video") }
@@ -100,6 +103,8 @@ struct ClipLibraryView: View {
             }
         }
         .fullScreenCover(isPresented: $filmingTest) { FilmJumpTestView() }
+        .photosPicker(isPresented: $pickingPhotos, selection: $picks, maxSelectionCount: 20,
+                      matching: .videos, photoLibrary: .shared())
         .navigationDestination(item: $opened) { ClipDetailView(clip: $0) }
         .confirmationDialog("Delete this clip?", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }),
                             titleVisibility: .visible, presenting: deleting) { clip in

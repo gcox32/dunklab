@@ -10,7 +10,7 @@ struct ClipDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Query(sort: \DunkStage.order) private var stages: [DunkStage]
     @State private var player = AVPlayer()
-    @State private var speed: Float = 0.25
+    @State private var speed: Float = 1
     @State private var marking: SlowMoClip?
     @State private var confirmDelete = false
     @State private var syncError: String?
