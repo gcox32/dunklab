@@ -69,7 +69,8 @@ struct ClipLibraryView: View {
             } else {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 108), spacing: 4)], spacing: 4) {
                     ForEach(shown) { clip in
-                        NavigationLink { ClipDetailView(clip: clip) } label: { ClipTile(clip: clip) }
+                        // Opens the feed at this clip; its details are one tap from there.
+                        NavigationLink { ClipFeedView(filter: filter, startingAt: clip.id) } label: { ClipTile(clip: clip) }
                             .buttonStyle(.plain)
                             .contextMenu {
                                 Button(clip.isFavorite ? "Remove from Favorites" : "Favorite",
