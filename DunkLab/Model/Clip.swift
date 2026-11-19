@@ -53,6 +53,8 @@ nonisolated enum UploadState: String, Codable {
 
     /// Whether the file is on this phone. False once it's been cleared after upload.
     var hasLocalFile: Bool = true
+    /// Bumped when the poster is redrawn (after a rotate), so the grid reloads it.
+    var posterVersion: Int = 0
     /// The object's key in the bucket, once uploaded.
     var remoteKey: String?
     var uploadStateRaw: String = UploadState.local.rawValue
@@ -127,6 +129,102 @@ nonisolated enum ClipFiles {
         try? data.write(to: posterURL, options: .atomic)
     }
 
+    /// A copy of the video turned a quarter turn clockwise, written to the
+    /// temporary directory. Only the orientation flag changes: every frame is
+    /// copied as it was, so it's quick and loses nothing.
+    @concurrent static func rotatedClockwise(_ source: URL) async throws -> URL {
+        let asset = AVURLAsset(url: source)
+        let tracks = try await asset.load(.tracks)
+        let reader = try AVAssetReader(asset: asset)
+        let url = URL.temporaryDirectory.appending(path: "rotated-\(UUID().uuidString).mov")
+        let writer = try AVAssetWriter(outputURL: url, fileType: .mov)
+        // Index at the front, so it streams from the bucket without fetching the end first.
+        writer.shouldOptimizeForNetworkUse = true
+        writer.metadata = (try? await asset.load(.metadata)) ?? []
+
+        var pumps: [Pump] = []
+        for track in tracks where track.mediaType == .video || track.mediaType == .audio {
+            let (formats, transform, size) = try await track.load(.formatDescriptions, .preferredTransform, .naturalSize)
+            let output = AVAssetReaderTrackOutput(track: track, outputSettings: nil)
+            output.alwaysCopiesSampleData = false
+            let input = AVAssetWriterInput(mediaType: track.mediaType, outputSettings: nil, sourceFormatHint: formats.first)
+            input.expectsMediaDataInRealTime = false
+            if track.mediaType == .video {
+                input.transform = quarterTurn(after: transform, size: size)
+            }
+            guard reader.canAdd(output), writer.canAdd(input) else { continue }
+            reader.add(output)
+            writer.add(input)
+            pumps.append(Pump(output: output, input: input))
+        }
+        guard pumps.contains(where: { $0.input.mediaType == .video }) else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+        guard reader.startReading() else { throw reader.error ?? CocoaError(.fileReadUnknown) }
+        guard writer.startWriting() else { throw writer.error ?? CocoaError(.fileWriteUnknown) }
+        writer.startSession(atSourceTime: .zero)
+
+        await withTaskGroup(of: Void.self) { group in
+            for pump in pumps { group.addTask { await pump.run() } }
+        }
+        if reader.status == .failed {
+            writer.cancelWriting()
+            try? FileManager.default.removeItem(at: url)
+            throw reader.error ?? CocoaError(.fileReadUnknown)
+        }
+        await writer.finishWriting()
+        guard writer.status == .completed else {
+            try? FileManager.default.removeItem(at: url)
+            throw writer.error ?? CocoaError(.fileWriteUnknown)
+        }
+        return url
+    }
+
+    /// The upright transform a quarter turn clockwise from `transform`, with the
+    /// picture moved back into view as the camera writes it.
+    static func quarterTurn(after transform: CGAffineTransform, size: CGSize) -> CGAffineTransform {
+        let current = Int((atan2(transform.b, transform.a) * 180 / .pi).rounded())
+        let turned = ((current + 90) % 360 + 360) % 360
+        let (w, h) = (size.width, size.height)
+        switch (turned + 45) / 90 % 4 {
+        case 1: return CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: h, ty: 0)
+        case 2: return CGAffineTransform(a: -1, b: 0, c: 0, d: -1, tx: w, ty: h)
+        case 3: return CGAffineTransform(a: 0, b: -1, c: 1, d: 0, tx: 0, ty: w)
+        default: return .identity
+        }
+    }
+
+    /// Copies one track's samples from the reader to the writer.
+    private final class Pump: @unchecked Sendable {
+        let output: AVAssetReaderTrackOutput
+        let input: AVAssetWriterInput
+        private let queue = DispatchQueue(label: "clip.rotate")
+        private var finished = false
+
+        init(output: AVAssetReaderTrackOutput, input: AVAssetWriterInput) {
+            self.output = output
+            self.input = input
+        }
+
+        func run() async {
+            await withCheckedContinuation { (done: CheckedContinuation<Void, Never>) in
+                input.requestMediaDataWhenReady(on: queue) { [self] in
+                    while input.isReadyForMoreMediaData {
+                        guard let sample = output.copyNextSampleBuffer(), input.append(sample) else {
+                            input.markAsFinished()
+                            // The ready handler can run again after the end; finish once.
+                            if !finished {
+                                finished = true
+                                done.resume()
+                            }
+                            return
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     /// Deletes files no clip points at: left by deleted clips or an interrupted save.
     static func sweep(keeping ids: Set<UUID>) {
         let names = (try? FileManager.default.contentsOfDirectory(atPath: directory.path)) ?? []
@@ -168,6 +266,27 @@ enum ClipLibrary {
         export.shouldOptimizeForNetworkUse = true
         try await export.export(to: url, as: .mov)
         return try await add(recordingAt: url, kind: kind, recordedAt: recordedAt, into: context)
+    }
+
+    /// Turns the clip a quarter turn clockwise: the phone copy, its poster, and,
+    /// if it's in the bucket, the cloud copy, which is uploaded again over the old one.
+    static func rotate(_ clip: Clip, in context: ModelContext) async throws {
+        if !clip.hasLocalFile {
+            try await ClipSync.shared.download(clip)
+        }
+        let rotated = try await ClipFiles.rotatedClockwise(clip.fileURL)
+        _ = try FileManager.default.replaceItemAt(clip.fileURL, withItemAt: rotated)
+        let facts = try await ClipFiles.facts(of: clip.fileURL)
+        clip.width = facts.width
+        clip.height = facts.height
+        await ClipFiles.makePoster(for: clip.fileURL, at: facts.duration * 0.35, to: clip.posterURL)
+        clip.posterVersion += 1
+        clip.lastUsedAt = .now
+        if clip.uploadState != .local {
+            clip.uploadStateRaw = UploadState.local.rawValue
+        }
+        try? context.save()
+        Task { await ClipSync.shared.syncPending(context) }
     }
 
     /// Deletes the clip and its files.

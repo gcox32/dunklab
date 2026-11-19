@@ -140,6 +140,8 @@ nonisolated struct ClipManifest: Codable, Sendable {
         clip.uploadStateRaw = UploadState.uploading.rawValue
         try await client.put(file: clip.fileURL, key: key + ".mov", contentType: "video/quicktime")
         try await client.put(data: Self.manifest(clip), key: key + ".json", contentType: "application/json")
+        // Uploaded again (after a rotate) under a new key, if its date was changed: clear the old copy.
+        if let old = clip.remoteKey, old != key + ".mov" { await deleteRemote(key: old) }
         clip.remoteKey = key + ".mov"
         clip.uploadStateRaw = UploadState.uploaded.rawValue
         try? clip.modelContext?.save()

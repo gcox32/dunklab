@@ -177,7 +177,7 @@ struct ClipTile: View {
                     RoundedRectangle(cornerRadius: 2).fill(color).frame(width: 10, height: 16).padding(6)
                 }
             }
-            .task(id: clip.id) {
+            .task(id: "\(clip.id) \(clip.posterVersion)") {
                 let url = clip.posterURL
                 poster = await Task.detached { UIImage(contentsOfFile: url.path) }.value
             }

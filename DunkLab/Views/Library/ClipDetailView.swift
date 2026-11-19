@@ -14,6 +14,7 @@ struct ClipDetailView: View {
     @State private var marking: SlowMoClip?
     @State private var confirmDelete = false
     @State private var syncError: String?
+    @State private var rotating = false
     private var sync: ClipSync { ClipSync.shared }
 
     /// Real time down to an eighth: at 240 fps an eighth still shows every frame.
@@ -35,6 +36,12 @@ struct ClipDetailView: View {
                         ForEach(speeds, id: \.0) { Text($0.1).tag($0.0) }
                     }
                     .pickerStyle(.segmented)
+                    if rotating {
+                        HStack { Text("Rotating…"); Spacer(); ProgressView() }
+                    } else {
+                        Button("Rotate 90°", systemImage: "rotate.right") { Task { await rotate() } }
+                            .disabled(clip.uploadState == .uploading || sync.downloading.contains(clip.id))
+                    }
                 } else {
                     Text("This clip is in the cloud. Add your key in Clip storage to watch it.")
                         .foregroundStyle(Palette.inkSoft)
@@ -200,6 +207,24 @@ struct ClipDetailView: View {
             guard clip.hasLocalFile else { return }
         }
         marking = SlowMoClip(asset: AVURLAsset(url: clip.fileURL), recordedAt: clip.recordedAt)
+    }
+
+    private func rotate() async {
+        rotating = true
+        defer { rotating = false }
+        player.pause()
+        let time = player.currentTime()
+        // Let go of the file before it's replaced.
+        player.replaceCurrentItem(with: nil)
+        do {
+            try await ClipLibrary.rotate(clip, in: context)
+        } catch {
+            syncError = "Couldn't rotate the clip: \(error.localizedDescription)"
+        }
+        guard let url = clip.hasLocalFile ? clip.fileURL : streamURL else { return }
+        player.replaceCurrentItem(with: AVPlayerItem(url: url))
+        player.defaultRate = speed
+        await player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero)
     }
 
     private func download() async {
