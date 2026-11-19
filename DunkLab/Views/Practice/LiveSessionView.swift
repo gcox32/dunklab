@@ -209,6 +209,7 @@ struct LiveSessionView: View {
                 clip.stage = stage
                 clip.outcomeRaw = outcome.rawValue
                 clip.attempt = attempt
+                clip.session = attempt.session
             }
         }
     }
@@ -420,6 +421,8 @@ struct SessionDetail: View {
             } header: {
                 SectionTitle("Attempts")
             }
+
+            SessionClipsSection(session: session)
 
             Section {
                 let touches = session.touches.sorted { $0.date < $1.date }

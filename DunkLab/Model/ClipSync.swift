@@ -24,6 +24,27 @@ nonisolated struct ClipManifest: Codable, Sendable {
     var height: Int
     var isFavorite: Bool
     var jumpTest: Test?
+    var session: Session?
+    var attempt: Attempt?
+
+    struct Session: Codable, Sendable {
+        var id: UUID
+        var startedAt: Date
+        var finishedAt: Date?
+        var focus: String
+        var cue: String
+        var stage: String
+    }
+
+    /// The logged attempt the clip is matched to, as it was logged.
+    struct Attempt: Codable, Sendable {
+        var id: UUID
+        /// 1-based, in the order logged.
+        var number: Int
+        var at: Date
+        var outcome: String
+        var stage: String
+    }
 }
 
 /// Uploads clips to the bucket one at a time, and fetches or frees local copies.
@@ -169,7 +190,16 @@ nonisolated struct ClipManifest: Codable, Sendable {
             id: clip.id, recordedAt: clip.recordedAt, kind: clip.kindRaw, caption: clip.caption,
             stage: clip.stage, outcome: clip.outcomeRaw, durationSec: clip.durationSec,
             nominalFPS: clip.nominalFPS, width: clip.width, height: clip.height,
-            isFavorite: clip.isFavorite, jumpTest: test)
+            isFavorite: clip.isFavorite, jumpTest: test,
+            session: clip.session.map { session in
+                ClipManifest.Session(id: session.ensureSyncID(), startedAt: session.startedAt, finishedAt: session.finishedAt,
+                                     focus: session.focus, cue: session.cue, stage: session.stage)
+            },
+            attempt: clip.attempt.map { attempt in
+                let number = (attempt.session?.sortedAttempts.firstIndex { $0 === attempt } ?? 0) + 1
+                return ClipManifest.Attempt(id: attempt.ensureSyncID(), number: number, at: attempt.at,
+                                            outcome: attempt.outcomeRaw, stage: attempt.stage)
+            })
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]

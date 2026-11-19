@@ -634,6 +634,22 @@ struct DunkProgress {
     @Relationship(deleteRule: .cascade, inverse: \TouchRecord.session)
     var touches: [TouchRecord] = []
 
+    /// Videos from this session, whether or not each is matched to an attempt.
+    /// Deleting the session keeps them in the library.
+    @Relationship(deleteRule: .nullify, inverse: \Clip.session)
+    var clips: [Clip] = []
+
+    /// A permanent ID for the cloud manifests, made the first time it's needed
+    /// (a default here would give every existing session the same one).
+    var syncID: UUID?
+
+    func ensureSyncID() -> UUID {
+        if let syncID { return syncID }
+        let id = UUID()
+        syncID = id
+        return id
+    }
+
     init(focus: String, cue: String, stage: String, attemptCap: Int) {
         self.focus = focus
         self.cue = cue
@@ -666,6 +682,16 @@ struct DunkProgress {
     var clips: [Clip] = []
 
     var clip: Clip? { clips.first }
+
+    /// A permanent ID for the cloud manifests; see PracticeSession.syncID.
+    var syncID: UUID?
+
+    func ensureSyncID() -> UUID {
+        if let syncID { return syncID }
+        let id = UUID()
+        syncID = id
+        return id
+    }
 
     init(stage: String, outcome: AttemptOutcome) {
         self.stage = stage

@@ -48,6 +48,11 @@ struct ClipDetailView: View {
             }
 
             Section {
+                NavigationLink { SessionLinkView(clip: clip) } label: {
+                    LabeledContent("Session") {
+                        Text(sessionText).multilineTextAlignment(.trailing)
+                    }
+                }
                 if isStandalone {
                     editableFacts
                 } else {
@@ -55,7 +60,6 @@ struct ClipDetailView: View {
                     if clip.kind == .attempt {
                         if !clip.stage.isEmpty { LabeledContent("Dunk", value: clip.stage) }
                         if let outcome = clip.outcome { LabeledContent("Outcome", value: outcome.label) }
-                        if let session = clip.attempt?.session { LabeledContent("Focus", value: session.focus) }
                     }
                 }
                 LabeledContent("Length", value: String(format: "%.1f s", clip.durationSec))
@@ -231,6 +235,16 @@ struct ClipDetailView: View {
                 }
             }
         }
+    }
+
+    /// The linked session and attempt, briefly.
+    private var sessionText: String {
+        guard let session = clip.session else { return "Not linked" }
+        var text = session.startedAt.formatted(date: .abbreviated, time: .omitted)
+        if let attempt = clip.attempt, let index = session.sortedAttempts.firstIndex(where: { $0 === attempt }) {
+            text += ", attempt \(index + 1)"
+        }
+        return text
     }
 
     private func frameText(_ rep: JumpRep) -> String? {

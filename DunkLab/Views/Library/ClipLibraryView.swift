@@ -127,39 +127,12 @@ struct ClipLibraryView: View {
 }
 
 extension ClipLibraryView {
-    /// Copies each picked video into the library, dated when it was filmed.
     /// One video opens straight away for tagging; several land in the grid.
     fileprivate func importVideos(_ items: [PhotosPickerItem]) async {
-        let already = Set(clips.compactMap(\.sourceAssetID))
-        var added: [Clip] = []
-        var skipped = 0
-        var failures: [String] = []
-        for (index, item) in items.enumerated() {
-            importing = (index, items.count)
-            guard let id = item.itemIdentifier, !already.contains(id) else {
-                skipped += 1
-                continue
-            }
-            do {
-                let video = try await SlowMoLibrary.video(forPickerItem: id, requireSlowMo: false)
-                let clip = try await ClipLibrary.importOriginal(
-                    video.asset, kind: .attempt, recordedAt: video.recordedAt ?? .now, into: context)
-                clip.sourceAssetID = id
-                try? context.save()
-                added.append(clip)
-            } catch {
-                failures.append(error.localizedDescription)
-            }
-        }
+        let result = await PhotoImport.run(items, into: context) { importing = ($0, $1) }
         importing = nil
-
-        var notes: [String] = []
-        if skipped > 0 { notes.append("\(skipped) already in the library, skipped.") }
-        if !failures.isEmpty { notes.append("\(failures.count) couldn't be imported: \(failures[0])") }
-        if added.count > 1 { notes.append("\(added.count) added as attempts. Open each to tag it: make or miss, the dunk, or change it to a jump test.") }
-        if !notes.isEmpty { importNote = notes.joined(separator: "\n\n") }
-        if added.count == 1 { opened = added[0] }
-        await ClipSync.shared.syncPending(context)
+        importNote = result.note(linkedTo: nil)
+        if result.added.count == 1 { opened = result.added[0] }
     }
 }
 

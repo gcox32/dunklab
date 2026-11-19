@@ -57,7 +57,11 @@ nonisolated enum UploadState: String, Codable {
     var remoteKey: String?
     var uploadStateRaw: String = UploadState.local.rawValue
 
+    /// The logged attempt it shows, if matched to one. Matching never changes the attempt.
     var attempt: DunkAttempt?
+    /// The practice session it's from. Set for every attempt clip, and for clips
+    /// linked to a session without being matched to an attempt.
+    var session: PracticeSession?
     var jumpTest: JumpTest?
 
     init(kind: ClipKind, recordedAt: Date, durationSec: Double, nominalFPS: Double, width: Int, height: Int) {
@@ -175,6 +179,58 @@ enum ClipLibrary {
         try? FileManager.default.removeItem(at: clip.fileURL)
         try? FileManager.default.removeItem(at: clip.posterURL)
         context.delete(clip)
+    }
+
+    /// Attaches a clip to a session and, optionally, one of its logged attempts.
+    /// Only links: the session's attempts and counts stay as they were logged.
+    static func link(_ clip: Clip, to session: PracticeSession?, attempt: DunkAttempt?) {
+        clip.session = session
+        clip.attempt = attempt
+        if let attempt {
+            // The logged attempt is the truth about what happened.
+            clip.kind = .attempt
+            clip.outcomeRaw = attempt.outcomeRaw
+            clip.stage = attempt.stage
+        } else if let session, clip.stage.isEmpty {
+            clip.stage = session.stage
+        }
+    }
+
+    /// Sessions the clip was probably filmed in: those running at its time, give
+    /// or take half an hour, nearest first.
+    static func suggestedSessions(for clip: Clip, among sessions: [PracticeSession]) -> [PracticeSession] {
+        let slack: TimeInterval = 30 * 60
+        let time = clip.recordedAt
+        return sessions
+            .filter { $0.startedAt.addingTimeInterval(-slack) <= time && time <= $0.effectiveEnd.addingTimeInterval(slack) }
+            .sorted { distance(time, $0) < distance(time, $1) }
+    }
+
+    private static func distance(_ time: Date, _ session: PracticeSession) -> TimeInterval {
+        if time < session.startedAt { return session.startedAt.timeIntervalSince(time) }
+        if time > session.effectiveEnd { return time.timeIntervalSince(session.effectiveEnd) }
+        return 0
+    }
+
+    /// The logged attempt nearest the clip's end, among those with no video yet,
+    /// within three minutes. Attempts are logged just after the jump, so the end
+    /// of the clip is the best guess at when it was tapped.
+    static func suggestedAttempt(for clip: Clip, in session: PracticeSession) -> DunkAttempt? {
+        let end = clip.recordedAt.addingTimeInterval(clip.durationSec)
+        return session.attempts
+            .filter { $0.clips.isEmpty || $0.clips.contains { $0.id == clip.id } }
+            .map { ($0, abs($0.at.timeIntervalSince(end))) }
+            .filter { $0.1 <= 180 }
+            .min { $0.1 < $1.1 }?.0
+    }
+
+    /// Clips filmed before the session link existed reach their session through
+    /// their attempt. Gives them the direct link too. Cheap; runs at launch.
+    static func linkSessionsFromAttempts(_ context: ModelContext) {
+        for clip in (try? context.fetch(FetchDescriptor<Clip>())) ?? [] where clip.session == nil {
+            if let session = clip.attempt?.session { clip.session = session }
+        }
+        try? context.save()
     }
 
     /// Clears out files whose clip is gone. Cheap: one directory listing.

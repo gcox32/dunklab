@@ -19,6 +19,7 @@ struct DunkLabApp: App {
         Appearance.apply()
         Seed.importIfNeeded(into: AppStore.container.mainContext)
         ClipLibrary.sweep(AppStore.container.mainContext)
+        ClipLibrary.linkSessionsFromAttempts(AppStore.container.mainContext)
         #if DEBUG
         DebugFixtures.applyLaunchArguments(to: AppStore.container.mainContext)
         #endif
@@ -54,10 +55,10 @@ struct MainTabs: View {
 
     var body: some View {
         TabView(selection: $selection) {
-            Tab("Today", systemImage: "arrow.up.to.line", value: "today") { TodayView(athlete: athlete) }
-            Tab("Practice", systemImage: "basketball", value: "practice") { PracticeView(athlete: athlete) }
+            Tab("Today", systemImage: "basketball", value: "today") { TodayView(athlete: athlete) }
+            Tab("Practice", systemImage: "figure.jumprope", value: "practice") { PracticeView(athlete: athlete) }
             Tab("Train", systemImage: "dumbbell", value: "train") { TrainView() }
-            Tab("Measure", systemImage: "ruler", value: "body") { BodyView(athlete: athlete) }
+            Tab("Measure", systemImage: "gauge.with.needle", value: "body") { BodyView(athlete: athlete) }
         }
         .tint(Palette.vaneBlue)
         // Upload clips kept since last time, whenever the app comes forward.
