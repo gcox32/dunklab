@@ -15,7 +15,8 @@ struct PracticeView: View {
     @State private var live: PracticeSession?
     @State private var loggingTouch = false
 
-    private var goal: DunkStage? { DunkStage.goal(in: stages) }
+    private var progress: DunkProgress { DunkProgress(stages: stages, sessions: sessions) }
+    private var goal: DunkStage? { progress.goal }
 
     var body: some View {
         NavigationStack {
@@ -31,14 +32,16 @@ struct PracticeView: View {
                 }
 
                 Section {
+                    let progress = progress
+                    let goal = progress.goal
                     ForEach(stages) { stage in
-                        stageRow(stage)
+                        stageRow(stage, progress: progress, isGoal: stage == goal)
                     }
                     NavigationLink("Edit the ladder") { LadderEditor(athlete: athlete) }
                 } header: {
                     SectionTitle("Dunk ladder")
                 } footer: {
-                    Text("Swipe a dunk to mark it landed. Heights are rough guides for where your hand needs to be. Adjust them to match your hands and style.")
+                    Text("A make lands a dunk. Makes in \(DunkProgress.sessionsToOwn) separate sessions own it, and your goal is the first dunk you don't own. Swipe right to make a dunk your goal, or left to mark one you already own. Heights are rough guides for where your hand needs to be.")
                 }
 
                 Section {
@@ -76,6 +79,7 @@ struct PracticeView: View {
                 }
             }
             .navigationTitle("Practice")
+            .libraryButton()
             .sheet(isPresented: $settingUp, onDismiss: {
                 live = pending
                 pending = nil
@@ -103,27 +107,49 @@ struct PracticeView: View {
         }
     }
 
-    private func stageRow(_ stage: DunkStage) -> some View {
+    private func stageRow(_ stage: DunkStage, progress: DunkProgress, isGoal: Bool) -> some View {
         let line = athlete.line(for: stage)
+        let owned = progress.isOwned(stage)
+        let made = progress.sessionsMade(stage)
         return HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text(stage.name).fontWeight(stage == goal ? .semibold : .regular)
+                Text(stage.name).fontWeight(isGoal ? .semibold : .regular)
                 Text("\(Fmt.feet(line)), \(Fmt.inches(stage.clearanceIn)) over the rim")
                     .font(.caption).foregroundStyle(Palette.inkSoft)
             }
             Spacer()
-            if stage.isLanded {
+            if owned {
                 Image(systemName: "checkmark.circle.fill").foregroundStyle(Palette.vaneBlue)
-                    .accessibilityLabel("Landed")
-            } else if stage == goal {
-                Text("Goal").font(.caption.weight(.semibold)).foregroundStyle(Palette.vaneRed)
+                    .accessibilityLabel("Owned")
+            } else {
+                VStack(alignment: .trailing, spacing: 2) {
+                    if isGoal {
+                        Label("Goal", systemImage: "pin.fill")
+                            .labelStyle(PinnedLabelStyle(pinned: stage.isGoalPinned))
+                            .font(.caption.weight(.semibold)).foregroundStyle(Palette.vaneRed)
+                    }
+                    if progress.isLanded(stage) {
+                        Text("Made in \(made) of \(DunkProgress.sessionsToOwn)")
+                            .font(.caption).monospacedDigit().foregroundStyle(Palette.inkSoft)
+                    }
+                }
             }
         }
-        .swipeActions {
-            Button(stage.isLanded ? "Not yet" : "Landed") {
-                stage.landedAt = stage.isLanded ? nil : .now
+        .swipeActions(edge: .leading) {
+            if !owned {
+                Button(stage.isGoalPinned ? "Unpin" : "Make goal") {
+                    DunkProgress.pin(stage, in: stages)
+                }
+                .tint(Palette.vaneRed)
             }
-            .tint(stage.isLanded ? .gray : Palette.vaneBlue)
+        }
+        .swipeActions(edge: .trailing) {
+            if !progress.isOwnedByPractice(stage) {
+                Button(stage.ownedAt != nil ? "Not owned" : "Owned") {
+                    stage.ownedAt = stage.ownedAt != nil ? nil : .now
+                }
+                .tint(stage.ownedAt != nil ? .gray : Palette.vaneBlue)
+            }
         }
     }
 
@@ -253,5 +279,17 @@ struct PracticeSetupView: View {
         try? context.save()
         onStart(session)
         dismiss()
+    }
+}
+
+/// Shows the pin only when the athlete chose the goal, rather than the ladder.
+private struct PinnedLabelStyle: LabelStyle {
+    var pinned: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        HStack(spacing: 3) {
+            if pinned { configuration.icon.imageScale(.small) }
+            configuration.title
+        }
     }
 }

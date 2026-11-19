@@ -27,6 +27,11 @@ nonisolated enum SlowMoLibrary {
     }
 
     static func clip(forPickerItem id: String?) async throws -> SlowMoClip {
+        try await video(forPickerItem: id, requireSlowMo: true)
+    }
+
+    /// Any video's original from the library: Slo-Mo at its full frame rate, others as filmed.
+    static func video(forPickerItem id: String?, requireSlowMo: Bool) async throws -> SlowMoClip {
         guard let id else { throw Failure(errorDescription: "That clip didn't come from the photo library.") }
         let status = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
         guard status == .authorized || status == .limited else {
@@ -35,7 +40,7 @@ nonisolated enum SlowMoLibrary {
         guard let asset = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: nil).firstObject else {
             throw Failure(errorDescription: "Couldn't open that clip. With limited photo access, add it to the photos Dunk Lab can see.")
         }
-        guard asset.mediaSubtypes.contains(.videoHighFrameRate) else {
+        guard !requireSlowMo || asset.mediaSubtypes.contains(.videoHighFrameRate) else {
             throw Failure(errorDescription: "That isn't a Slo-Mo clip. Film the jump in the Camera app's Slo-Mo mode.")
         }
 

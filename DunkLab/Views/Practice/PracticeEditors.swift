@@ -40,6 +40,9 @@ private struct StageForm: View {
     @Bindable var stage: DunkStage
     var rim: Double
 
+    @Query(sort: \DunkStage.order) private var stages: [DunkStage]
+    @Query private var sessions: [PracticeSession]
+
     var body: some View {
         Form {
             TextField("Name", text: $stage.name)
@@ -51,12 +54,23 @@ private struct StageForm: View {
                 Text("How high your hand needs to get for this dunk. Big hands that palm the ball need less.")
             }
             Section {
-                Toggle("Landed", isOn: Binding(
-                    get: { stage.isLanded },
-                    set: { stage.landedAt = $0 ? .now : nil }))
-                if let date = stage.landedAt {
+                let progress = DunkProgress(stages: stages, sessions: sessions)
+                if let date = progress.landedDate(stage) {
                     LabeledContent("First landed", value: date.formatted(date: .abbreviated, time: .omitted))
                 }
+                LabeledContent("Sessions with a make", value: "\(progress.sessionsMade(stage))")
+                if !progress.isOwnedByPractice(stage) {
+                    Toggle("Owned", isOn: Binding(
+                        get: { stage.ownedAt != nil },
+                        set: { stage.ownedAt = $0 ? .now : nil }))
+                }
+                if !progress.isOwned(stage) {
+                    Toggle("Make this my goal", isOn: Binding(
+                        get: { stage.isGoalPinned },
+                        set: { _ in DunkProgress.pin(stage, in: stages) }))
+                }
+            } footer: {
+                Text("Makes in \(DunkProgress.sessionsToOwn) separate practice sessions own a dunk. Mark one owned by hand if you could already do it.")
             }
         }
         .navigationTitle(stage.name)

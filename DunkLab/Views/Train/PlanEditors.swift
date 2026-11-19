@@ -137,7 +137,7 @@ struct PlanItemEditor: View {
                 switch item.gauge {
                 case .maxTest: Text("A heavy single here that beats your max can be saved as the new max.")
                 case .barSpeed: Text("Rate how the bar moved. Decision time shows the last six weeks.")
-                case .reactive: Text("Time a rep from a Slo-Mo clip for your RSI. It shows on the Body tab.")
+                case .reactive: Text("Time a rep from a Slo-Mo clip for your RSI. It shows on the Measure tab.")
                 case nil: EmptyView()
                 }
             }

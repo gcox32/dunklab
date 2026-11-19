@@ -18,7 +18,18 @@ struct TodayView: View {
     @State private var showingCalendar = UserDefaults.standard.string(forKey: "open") == "calendar"
 
     private var best: TouchRecord? { touches.first }
-    private var goal: DunkStage? { DunkStage.goal(in: stages) }
+    /// The best touch as it stood a month ago, to show whether the gap moved.
+    private var earlier: TouchRecord? {
+        guard let cutoff = Calendar.current.date(byAdding: .day, value: -30, to: .now) else { return nil }
+        return touches.first { $0.date <= cutoff }
+    }
+    /// Inches gained on the best touch over the last month, when there's a month of history.
+    private var gained: Double? {
+        guard let best, let earlier else { return nil }
+        return best.heightIn - earlier.heightIn
+    }
+    private var progress: DunkProgress { DunkProgress(stages: stages, sessions: sessions) }
+    private var goal: DunkStage? { progress.goal }
     private var week: DateInterval { Calendar.training.currentWeek() }
 
     var body: some View {
@@ -27,8 +38,11 @@ struct TodayView: View {
                 VStack(alignment: .leading, spacing: 32) {
                     headline
                     VStack(alignment: .leading, spacing: 10) {
-                        ReachLadder(best: best?.heightIn, marks: marks, floor: ladderFloor)
-                            .frame(height: 420)
+                        ReachLadder(best: best?.heightIn, earlier: earlier?.heightIn,
+                                    marks: marks, floor: ladderFloor)
+                            .containerRelativeFrame(.vertical) { height, _ in
+                                min(420, max(260, height * 0.45))
+                            }
                         Text(reachLine)
                             .font(.subheadline)
                             .foregroundStyle(Palette.inkSoft)
@@ -41,13 +55,24 @@ struct TodayView: View {
                 .padding(.bottom, 32)
             }
             .background(Palette.backboard)
-            .toolbarVisibility(.hidden, for: .navigationBar)
+            .safeAreaInset(edge: .bottom) {
+                if let day = dueToday {
+                    Button("Start workout") { start(day) }
+                        .buttonStyle(BigButtonStyle())
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(Palette.backboard)
+                }
+            }
+            // No title: the gap sentence is the headline. The bar is there for the library.
+            .navigationBarTitleDisplayMode(.inline)
+            .libraryButton()
             .fullScreenCover(item: $runningLog) { WorkoutSessionView(log: $0) }
             .navigationDestination(isPresented: $showingCalendar) { CalendarView(athlete: athlete) }
             #if DEBUG
             .task {
                 if UserDefaults.standard.string(forKey: "open") == "workout", let day = active.first?.nextDay {
-                    runningLog = WorkoutFactory.start(day, basis: tests.first?.weightLb, in: context)
+                    start(day)
                 }
             }
             #endif
@@ -70,13 +95,26 @@ struct TodayView: View {
 
     private var gapSentence: String {
         guard let goal else { return "Add a harder dunk to your ladder in Practice." }
+        let progress = progress
+        if progress.isLanded(goal) {
+            let left = DunkProgress.sessionsToOwn - progress.sessionsMade(goal)
+            let landed = progress.landedDate(goal).map { " on \($0.formatted(.dateTime.month(.abbreviated).day()))" } ?? ""
+            let sessions = left == 1 ? "1 more session" : "\(left) more sessions"
+            return "First landed\(landed). Make it in \(sessions) to own it."
+        }
         guard let best else { return "Log a touch in Practice to see how close it is." }
         let gap = athlete.line(for: goal) - best.heightIn
         let estimate = best.isEstimate ? " (estimated)" : ""
         if gap > 0 {
-            return "Your best touch\(estimate) is \(Fmt.inches(gap)) short of it."
+            return "Your best touch\(estimate) is \(Fmt.inches(gap)) short of it" + progressClause
         }
         return "Your best touch\(estimate) clears it by \(Fmt.inches(-gap)). The height is there. Go land it."
+    }
+
+    private var progressClause: String {
+        guard let gained else { return "." }
+        if gained > 0 { return ", \(Fmt.inches(gained)) closer than a month ago." }
+        return ", the same as a month ago."
     }
 
     private var marks: [LadderMark] {
@@ -85,8 +123,7 @@ struct TodayView: View {
         ]
         if let goal {
             marks.append(LadderMark(value: athlete.line(for: goal), label: goal.name, style: .goal))
-            let after = stages.filter { !$0.isLanded && $0.order > goal.order && $0.clearanceIn > goal.clearanceIn }
-            if let next = after.first {
+            if let next = progress.next {
                 marks.append(LadderMark(value: athlete.line(for: next), label: next.name, style: .nextDunk))
             }
         }
@@ -96,11 +133,14 @@ struct TodayView: View {
                 label: best.isEstimate ? "Best touch, estimated" : "Best touch",
                 style: .touch))
         }
+        if let earlier, let gained, gained > 0 {
+            marks.append(LadderMark(value: earlier.heightIn, label: "A month ago", style: .earlier))
+        }
         return marks
     }
 
     private var ladderFloor: Double {
-        let low = min(athlete.rimHeightIn, best?.heightIn ?? athlete.rimHeightIn)
+        let low = [athlete.rimHeightIn, best?.heightIn, earlier?.heightIn].compactMap { $0 }.min() ?? athlete.rimHeightIn
         return max((low - 6).rounded(.down), athlete.standingReachIn)
     }
 
@@ -148,15 +188,8 @@ struct TodayView: View {
                             Text("Recovery is when the training turns into jumping. Isometrics and stretching are fine today.")
                                 .font(.subheadline)
                                 .foregroundStyle(Palette.inkSoft)
-                            Button("Start anyway") {
-                                runningLog = WorkoutFactory.start(day, basis: tests.first?.weightLb, in: context)
-                            }
-                            .buttonStyle(.bordered)
-                        } else {
-                            Button("Start workout") {
-                                runningLog = WorkoutFactory.start(day, basis: tests.first?.weightLb, in: context)
-                            }
-                            .buttonStyle(BigButtonStyle())
+                            Button("Start anyway") { start(day) }
+                                .buttonStyle(.bordered)
                         }
                     }
                 }
@@ -165,6 +198,17 @@ struct TodayView: View {
                     .foregroundStyle(Palette.inkSoft)
             }
         }
+    }
+
+    /// The next program day, when it's due today. Its start button is pinned to the bottom.
+    private var dueToday: PlanDay? {
+        guard let program = active.first, !program.awaitingDecision, let day = program.nextDay else { return nil }
+        let ready = Schedule.readyDate(for: day, in: program, logs: logs)
+        return Calendar.current.isDateInToday(ready) ? day : nil
+    }
+
+    private func start(_ day: PlanDay) {
+        runningLog = WorkoutFactory.start(day, basis: tests.first?.weightLb, in: context)
     }
 
     private func row(title: String, detail: String, symbol: String) -> some View {

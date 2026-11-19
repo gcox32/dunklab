@@ -9,11 +9,16 @@ struct JumpMarkerView: View {
     let clip: SlowMoClip
     var log: WorkoutLog?
     var boxHeightIn: Double?
+    /// The library clip being marked. Nil for a clip picked from Photos,
+    /// which gets copied into the library when the test is saved.
+    var libraryClip: Clip?
 
     @Environment(\.dismiss) private var dismiss
     @State private var stepper = FrameStepper()
     @State private var kind: JumpTestKind = .dropJump
     @State private var marks: [Double] = []
+    /// The frame number of each mark, alongside its time.
+    @State private var markFrames: [Int] = []
     @State private var reps: [JumpRep] = []
     @State private var loadError: String?
     @State private var saving = false
@@ -56,7 +61,9 @@ struct JumpMarkerView: View {
             }
             .sheet(isPresented: $saving) {
                 SaveJumpTestSheet(kind: kind, reps: reps, recordedAt: clip.recordedAt,
-                                  log: log, suggestedBoxIn: boxHeightIn) { dismiss() }
+                                  log: log, suggestedBoxIn: boxHeightIn,
+                                  libraryClip: libraryClip,
+                                  photosOriginal: libraryClip == nil ? clip : nil) { dismiss() }
             }
         }
         .sensoryFeedback(.impact, trigger: marks.count)
@@ -168,10 +175,13 @@ struct JumpMarkerView: View {
         let now = stepper.seconds
         guard marks.last.map({ now > $0 }) ?? true else { return }
         marks.append(now)
+        markFrames.append(stepper.index)
         if marks.count == 3 {
-            reps.append(JumpRep(contact: marks[0], takeoff: marks[1], landing: marks[2]))
+            reps.append(JumpRep(contact: marks[0], takeoff: marks[1], landing: marks[2],
+                                contactFrame: markFrames[0], takeoffFrame: markFrames[1], landingFrame: markFrames[2]))
             // Pogo hops chain: this landing is the next hop's touch.
             marks = kind == .pogo ? [now] : []
+            markFrames = kind == .pogo ? [stepper.index] : []
             if kind == .pogo { stepper.jump(by: 0.18) }
         } else {
             // Skip ahead to about where the next moment usually is.
@@ -183,8 +193,10 @@ struct JumpMarkerView: View {
         let chained = kind == .pogo && marks.count == 1 && !reps.isEmpty
         if marks.isEmpty || chained, let last = reps.popLast() {
             marks = [last.contact, last.takeoff]
+            markFrames = [last.contactFrame ?? 0, last.takeoffFrame ?? 0]
             stepper.show(time: last.landing)
         } else if let last = marks.popLast() {
+            markFrames.removeLast()
             stepper.show(time: last)
         }
     }
@@ -295,6 +307,10 @@ struct SaveJumpTestSheet: View {
     var source: JumpSource = .video
     /// The accelerometer trace, for a motion test.
     var trace: Data?
+    /// The library clip it was marked on.
+    var libraryClip: Clip?
+    /// A Photos Slo-Mo original it was marked on, to copy into the library.
+    var photosOriginal: SlowMoClip?
     var onSaved: () -> Void
 
     @Environment(\.modelContext) private var context
@@ -335,6 +351,25 @@ struct SaveJumpTestSheet: View {
                         test.traceData = trace
                         context.insert(test)
                         test.log = log
+                        if let libraryClip {
+                            libraryClip.kind = .jumpTest
+                            libraryClip.jumpTest = test
+                            Task { @MainActor [context] in
+                                // Already up if the sync beat the marking: rewrite its manifest.
+                                await ClipSync.shared.refreshManifest(libraryClip)
+                                await ClipSync.shared.syncPending(context)
+                            }
+                        } else if let photosOriginal {
+                            // Best effort: the test is saved whether or not the copy works.
+                            Task { @MainActor [context] in
+                                let clip = try? await ClipLibrary.importOriginal(
+                                    photosOriginal.asset, kind: .jumpTest,
+                                    recordedAt: photosOriginal.recordedAt ?? date, into: context)
+                                clip?.jumpTest = test
+                                try? context.save()
+                                await ClipSync.shared.syncPending(context)
+                            }
+                        }
                         try? context.save()
                         dismiss()
                         onSaved()

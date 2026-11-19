@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LadderMark: Identifiable {
-    enum Style { case rim, goal, nextDunk, touch, reach }
+    enum Style { case rim, goal, nextDunk, touch, earlier, reach }
 
     var value: Double
     var label: String
@@ -12,8 +12,10 @@ struct LadderMark: Identifiable {
 
 /// The top of a Vertec, from a little below the rim to just above the goal dunk.
 /// Vanes at or below the best touch are swept aside, the way they are after a real jump.
+/// Vanes swept since `earlier` stay bright: that's the ground gained.
 struct ReachLadder: View {
     var best: Double?
+    var earlier: Double? = nil
     var marks: [LadderMark]
     /// The lowest height drawn.
     var floor: Double
@@ -51,9 +53,10 @@ struct ReachLadder: View {
 
                 ForEach(Array(vanes.enumerated()), id: \.offset) { index, value in
                     let hit = best.map { value <= $0 } ?? false
-                    vane(value)
+                    let gained = hit && earlier.map { value > $0 } ?? false
+                    vane(value, gained: gained && swept)
                         .scaleEffect(x: hit && swept ? 0.16 : 1, anchor: .leading)
-                        .opacity(hit && swept ? 0.5 : 1)
+                        .opacity(hit && swept && !gained ? 0.5 : 1)
                         .animation(
                             reduceMotion ? nil : .spring(duration: 0.4).delay(Double(index) * 0.012),
                             value: swept)
@@ -80,10 +83,10 @@ struct ReachLadder: View {
 
     // MARK: Pieces
 
-    private func vane(_ value: Double) -> some View {
+    private func vane(_ value: Double, gained: Bool = false) -> some View {
         let six = value.truncatingRemainder(dividingBy: 6) == 0
         let inch = value.truncatingRemainder(dividingBy: 1) == 0
-        let color = six ? Palette.vaneRed : inch ? Palette.vaneBlue : Palette.chalk
+        let color = gained ? Palette.vaneBlue : six ? Palette.vaneRed : inch ? Palette.vaneBlue : Palette.chalk
         let length: CGFloat = six ? 66 : inch ? 50 : 34
         return Capsule().fill(color).frame(width: length, height: 3.5)
     }
@@ -101,6 +104,9 @@ struct ReachLadder: View {
                 .frame(height: 1)
         case .touch:
             Rectangle().fill(Palette.vaneBlue).frame(height: 2)
+        case .earlier:
+            Line().stroke(Palette.vaneBlue.opacity(0.45), style: StrokeStyle(lineWidth: 1.5, dash: [3, 3]))
+                .frame(height: 1.5)
         case .reach:
             Rectangle().fill(Palette.inkSoft).frame(height: 1)
         }
@@ -114,7 +120,7 @@ struct ReachLadder: View {
                 .foregroundStyle(color(mark.style))
             Text(mark.label)
                 .font(.subheadline)
-                .foregroundStyle(mark.style == .nextDunk ? Palette.inkSoft : Palette.ink)
+                .foregroundStyle(mark.style == .nextDunk || mark.style == .earlier ? Palette.inkSoft : Palette.ink)
                 .lineLimit(1)
         }
         .frame(height: 26)
@@ -125,7 +131,7 @@ struct ReachLadder: View {
         case .rim: Palette.rim
         case .goal: Palette.vaneRed
         case .touch: Palette.vaneBlue
-        case .nextDunk, .reach: Palette.inkSoft
+        case .nextDunk, .earlier, .reach: Palette.inkSoft
         }
     }
 

@@ -24,6 +24,7 @@ enum Seed {
             UserDefaults.standard.set(true, forKey: videosKey)
             UserDefaults.standard.set(true, forKey: gaugesKey)
             UserDefaults.standard.set(true, forKey: reactiveKey)
+            UserDefaults.standard.set(true, forKey: ownedKey)
         } catch {
             assertionFailure("Seed import failed: \(error)")
         }
@@ -35,6 +36,7 @@ enum Seed {
     private static let videosKey = "seed.migrated.videos"
     private static let gaugesKey = "seed.migrated.gauges"
     private static let reactiveKey = "seed.migrated.reactive"
+    private static let ownedKey = "seed.migrated.owned"
 
     /// Rest days arrived after the first import. Fill them in on program days
     /// that predate the field, using the PhD Program's rule: a rest day before
@@ -44,6 +46,23 @@ enum Seed {
         migrateVideos(context)
         migrateGauges(context)
         migrateReactive(context)
+        migrateOwned(context)
+    }
+
+    /// Owning a dunk arrived after landing one. A dunk marked landed with no makes
+    /// on record was ticked in onboarding or by hand, so it's one the athlete
+    /// already had: mark it owned. One landed from practice makes stays landed
+    /// until it's made in enough sessions.
+    private static func migrateOwned(_ context: ModelContext) {
+        guard !UserDefaults.standard.bool(forKey: ownedKey) else { return }
+        let stages = (try? context.fetch(FetchDescriptor<DunkStage>())) ?? []
+        let attempts = (try? context.fetch(FetchDescriptor<DunkAttempt>())) ?? []
+        let made = Set(attempts.filter { $0.outcome == .make }.map(\.stage))
+        for stage in stages where stage.landedAt != nil && !made.contains(stage.name) {
+            stage.ownedAt = stage.landedAt
+        }
+        try? context.save()
+        UserDefaults.standard.set(true, forKey: ownedKey)
     }
 
     /// RSI timing arrived after the gauges. Drop jumps, in the program and in

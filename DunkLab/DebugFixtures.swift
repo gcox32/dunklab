@@ -15,9 +15,28 @@ enum DebugFixtures {
         context.insert(BodyEntry(weightLb: 180, bodyFatPct: nil))
         context.insert(StrengthTest(weightLb: 275))
         context.insert(TouchRecord(heightIn: 124, isEstimate: true))
+        // `-touchHistory YES`: an older best touch, so Today shows the gap moving.
+        if UserDefaults.standard.bool(forKey: "touchHistory") {
+            let touch = TouchRecord(heightIn: 122.5, isEstimate: true)
+            touch.date = Date.now.addingTimeInterval(-40 * 86_400)
+            context.insert(touch)
+        }
 
         let stages = (try? context.fetch(FetchDescriptor<DunkStage>(sortBy: [SortDescriptor(\.order)]))) ?? []
-        stages.first?.landedAt = .now
+        stages.first?.ownedAt = .now
+        // `-landedOnce YES`: one practice session with a make on the second dunk, landed but not owned.
+        if UserDefaults.standard.bool(forKey: "landedOnce"), stages.count > 1 {
+            let session = PracticeSession(focus: "Penultimate step", cue: "", stage: stages[1].name, attemptCap: 20)
+            session.startedAt = Date.now.addingTimeInterval(-10 * 86_400)
+            session.finishedAt = session.startedAt.addingTimeInterval(1_800)
+            context.insert(session)
+            for outcome in [AttemptOutcome.miss, .close, .make, .miss] {
+                let attempt = DunkAttempt(stage: session.stage, outcome: outcome)
+                attempt.at = session.startedAt
+                context.insert(attempt)
+                attempt.session = session
+            }
+        }
         if let program = try? context.fetch(FetchDescriptor<Program>()).first {
             program.isActive = true
             // `-week 4 -day 1`: start partway through (day is 0-based).

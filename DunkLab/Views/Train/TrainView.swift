@@ -109,6 +109,7 @@ struct TrainView: View {
                 }
             }
             .navigationTitle("Train")
+            .libraryButton()
             .sheet(isPresented: $loggingMax) { StrengthTestSheet() }
             .sheet(item: $newWorkout) { day in
                 NavigationStack { PlanDayEditor(day: day, isNew: true) }

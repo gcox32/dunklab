@@ -70,9 +70,9 @@ struct OnboardingView: View {
                         }
                     }
                 } header: {
-                    SectionTitle("Dunks you've landed")
+                    SectionTitle("Dunks you can already do")
                 } footer: {
-                    Text("Your goal becomes the first dunk you haven't landed. Edit the list any time in Practice.")
+                    Text("Your goal becomes the first dunk you can't do yet. Edit the list any time in Practice.")
                 }
                 if let program = programs.first {
                     Section {
@@ -114,7 +114,7 @@ struct OnboardingView: View {
         if let squat { context.insert(StrengthTest(weightLb: squat)) }
         if let touch { context.insert(TouchRecord(heightIn: touch, isEstimate: touchIsEstimate)) }
         for stage in stages where landed.contains(stage.persistentModelID) {
-            stage.landedAt = .now
+            stage.ownedAt = .now
         }
         if followProgram, let program = programs.first {
             program.isActive = true

@@ -76,6 +76,7 @@ struct ReactiveEntryRows: View {
     var body: some View {
         ForEach(log.jumpTests.sorted { $0.date < $1.date }) { JumpTestRow(test: $0, showDate: false) }
         let box = Reactive.boxHeightIn(fromDetails: entry.details)
+        FilmJumpButton(log: log, boxHeightIn: box)
         TimeJumpButton(log: log, boxHeightIn: box)
         MotionJumpButton(log: log, boxHeightIn: box)
     }

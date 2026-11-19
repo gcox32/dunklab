@@ -15,6 +15,9 @@ struct LiveSessionView: View {
     @State private var loggingTouch = false
     @State private var ending = false
     @State private var discardOnExit = false
+    /// The replay camera, while filming is on.
+    @State private var filming: Filming?
+    @AppStorage(Filming.keepSecondsKey) private var keepSeconds: Double = 10
 
     private var attempts: [DunkAttempt] { session.sortedAttempts }
     private var count: Int { attempts.count }
@@ -22,6 +25,13 @@ struct LiveSessionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             header
+            if let filming {
+                CameraPanel(filming: filming)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 190)
+                    .clipShape(.rect(cornerRadius: 14))
+                    .padding(.top, 12)
+            }
             Spacer(minLength: 12)
             counter
             Spacer(minLength: 12)
@@ -54,7 +64,9 @@ struct LiveSessionView: View {
             if !discardOnExit { Task { await LiveActivities.show(session) } }
         }        // Delete only once the screen is gone, so nothing renders a deleted session.
         .onDisappear {
+            filming?.stop()
             LiveActivities.endPractice()
+            if filming != nil { Task { await ClipSync.shared.syncPending(context) } }
             if discardOnExit {
                 context.delete(session)
                 try? context.save()
@@ -83,15 +95,47 @@ struct LiveSessionView: View {
                     .foregroundStyle(Palette.ink)
                     .fixedSize(horizontal: false, vertical: true)
             }
-            Menu {
-                Picker("Dunk", selection: $session.stage) {
-                    ForEach(stages) { Text($0.name).tag($0.name) }
+            HStack {
+                Menu {
+                    Picker("Dunk", selection: $session.stage) {
+                        ForEach(stages) { Text($0.name).tag($0.name) }
+                    }
+                } label: {
+                    Label(session.stage, systemImage: "chevron.up.chevron.down")
+                        .font(.subheadline.weight(.semibold))
                 }
-            } label: {
-                Label(session.stage, systemImage: "chevron.up.chevron.down")
-                    .font(.subheadline.weight(.semibold))
+                Spacer()
+                filmControl
             }
             .padding(.top, 4)
+        }
+    }
+
+    /// Turns the replay camera on, and once on, sets how much each tap keeps.
+    @ViewBuilder private var filmControl: some View {
+        if filming == nil {
+            Button {
+                let camera = Filming()
+                filming = camera
+                Task { await camera.start() }
+            } label: {
+                Label("Film", systemImage: "video")
+                    .font(.subheadline.weight(.semibold))
+            }
+        } else {
+            Menu {
+                Picker("Each attempt keeps", selection: $keepSeconds) {
+                    ForEach(Filming.keepChoices, id: \.self) { Text("Last \(Int($0)) seconds").tag($0) }
+                }
+                Button("Stop filming", systemImage: "video.slash") {
+                    filming?.stop()
+                    filming = nil
+                }
+            } label: {
+                Label("Keeps \(Int(keepSeconds)) s", systemImage: "video.fill")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(Palette.vaneRed)
+            }
         }
     }
 
@@ -134,7 +178,10 @@ struct LiveSessionView: View {
     private var footerButtons: some View {
         HStack {
             Button("Undo") {
-                if let last = attempts.last { context.delete(last) }
+                guard let last = attempts.last else { return }
+                // A mis-tap's video goes with it.
+                for clip in last.clips { ClipLibrary.delete(clip, from: context) }
+                context.delete(last)
             }
             .disabled(attempts.isEmpty)
             Spacer()
@@ -150,6 +197,20 @@ struct LiveSessionView: View {
         let attempt = DunkAttempt(stage: session.stage, outcome: outcome)
         context.insert(attempt)
         attempt.session = session
+        if let filming, filming.isRunning {
+            let stage = session.stage
+            Task {
+                guard let clip = try? await filming.keep(.attempt, seconds: keepSeconds, into: context) else { return }
+                // Undone while it was being written.
+                if attempt.isDeleted || attempt.modelContext == nil {
+                    ClipLibrary.delete(clip, from: context)
+                    return
+                }
+                clip.stage = stage
+                clip.outcomeRaw = outcome.rawValue
+                clip.attempt = attempt
+            }
+        }
     }
 
     private func color(_ outcome: AttemptOutcome) -> Color {
@@ -181,7 +242,7 @@ struct EndSessionSheet: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     @Query(sort: \DunkStage.order) private var stages: [DunkStage]
-    @State private var markLanded = false
+    @Query private var sessions: [PracticeSession]
     @State private var confirmDiscard = false
 
     private var stage: DunkStage? { stages.first { $0.name == session.stage } }
@@ -203,11 +264,9 @@ struct EndSessionSheet: View {
                 } header: {
                     SectionTitle("Reflect")
                 }
-                if let stage, !stage.isLanded, session.makes > 0 {
+                if let stage, let note = ownershipNote(for: stage) {
                     Section {
-                        Toggle("First \(stage.name.lowercased()) landed", isOn: $markLanded)
-                    } footer: {
-                        Text("Moves your goal to the next dunk on the ladder.")
+                        Text(note)
                     }
                 }
                 Section {
@@ -231,7 +290,6 @@ struct EndSessionSheet: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         session.finishedAt = .now
-                        if markLanded { stage?.landedAt = .now }
                         try? context.save()
                         dismiss()
                         // An empty session isn't worth keeping.
@@ -242,6 +300,30 @@ struct EndSessionSheet: View {
         }
     }
 }
+
+extension EndSessionSheet {
+    /// Where this session leaves the dunk, when it had makes on one not yet owned before it.
+    fileprivate func ownershipNote(for stage: DunkStage) -> String? {
+        let madeHere = session.attempts.contains { $0.stage == stage.name && $0.outcome == .make }
+        guard madeHere, stage.ownedAt == nil else { return nil }
+        let progress = DunkProgress(stages: stages, sessions: sessions)
+        let count = progress.sessionsMade(stage)
+        let target = DunkProgress.sessionsToOwn
+        let name = stage.name.lowercased()
+        switch count {
+        case 1:
+            return "First \(name) landed. Make it in \(target - 1) more sessions to own it."
+        case target:
+            let next = progress.goal.map { " Your goal moves to the \($0.name.lowercased())." } ?? ""
+            return "Makes in \(target) sessions. You own the \(name).\(next)"
+        case ..<target:
+            return "Makes on the \(name) in \(count) of \(target) sessions."
+        default:
+            return nil
+        }
+    }
+}
+
 
 struct TouchSheet: View {
     let athlete: Athlete

@@ -278,6 +278,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Dunk Lab";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Dunk Lab reads the original Slo-Mo video you pick so it can time your jumps frame by frame.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dunk Lab films your attempts and jump tests at high frame rate so you can review them and time them frame by frame.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +311,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Dunk Lab";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Dunk Lab reads the original Slo-Mo video you pick so it can time your jumps frame by frame.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dunk Lab films your attempts and jump tests at high frame rate so you can review them and time them frame by frame.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

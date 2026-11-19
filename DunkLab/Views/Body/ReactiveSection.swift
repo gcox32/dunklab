@@ -1,7 +1,7 @@
 import SwiftData
 import SwiftUI
 
-/// Reactive strength tests on the Body tab: a way to time a new one from a
+/// Reactive strength tests on the Measure tab: a way to time a new one from a
 /// Slo-Mo clip, and the history. The latest result shows in JumpSignalsSection.
 struct ReactiveSection: View {
     @Environment(\.modelContext) private var context
@@ -9,17 +9,24 @@ struct ReactiveSection: View {
 
     var body: some View {
         Section {
+            FilmJumpButton()
             TimeJumpButton()
             MotionJumpButton()
 
-            ForEach(tests) { JumpTestRow(test: $0) }
+            ForEach(tests) { test in
+                if let clip = test.clip {
+                    NavigationLink { ClipDetailView(clip: clip) } label: { JumpTestRow(test: test) }
+                } else {
+                    JumpTestRow(test: test)
+                }
+            }
                 .onDelete { offsets in
                     for i in offsets { context.delete(tests[i]) }
                 }
         } header: {
             SectionTitle("Reactive strength")
         } footer: {
-            Text("Film in the Camera app's Slo-Mo mode with the phone low and your feet in frame, or wear the phone at your waist and let the motion sensor time it. Hands on hips, and land where you took off. A drop jump off a box about a foot high is the standard test.")
+            Text("Film in Dunk Lab or the Camera app's Slo-Mo mode with the phone low and your feet in frame, or wear the phone at your waist and let the motion sensor time it. Hands on hips, and land where you took off. A drop jump off a box about a foot high is the standard test.")
         }
     }
 }

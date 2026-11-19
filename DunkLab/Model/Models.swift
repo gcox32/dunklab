@@ -210,6 +210,11 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     var contact: Double
     var takeoff: Double
     var landing: Double
+    /// The same moments as 0-based frame numbers in the clip, for showing and
+    /// jumping back to. Nil for tests marked before frames were kept, and for motion tests.
+    var contactFrame: Int?
+    var takeoffFrame: Int?
+    var landingFrame: Int?
 
     var groundTime: Double { takeoff - contact }
     var flightTime: Double { landing - takeoff }
@@ -230,6 +235,11 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     var sourceRaw: String?
     /// For motion tests, the accelerometer trace (see MotionTrace), kept so reps can be found again.
     var traceData: Data?
+    /// The library video it was marked on. Deleting the test keeps the video.
+    @Relationship(deleteRule: .nullify, inverse: \Clip.jumpTest)
+    var clips: [Clip] = []
+
+    var clip: Clip? { clips.first }
 
     init(date: Date = .now, kind: JumpTestKind, boxHeightIn: Double? = nil, reps: [JumpRep]) {
         self.date = date
@@ -526,7 +536,12 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     var name: String = ""
     var detail: String = ""
     var clearanceIn: Double = 6
+    /// First landed, when marked by hand. Makes logged in practice also count; see `DunkProgress`.
     var landedAt: Date?
+    /// Marked owned by hand, e.g. a dunk the athlete could already do before using the app.
+    var ownedAt: Date?
+    /// Chosen as the goal by hand, overriding the first dunk not owned.
+    var isGoalPinned: Bool = false
 
     init(order: Int, name: String, detail: String, clearanceIn: Double) {
         self.order = order
@@ -534,12 +549,61 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
         self.detail = detail
         self.clearanceIn = clearanceIn
     }
+}
 
-    var isLanded: Bool { landedAt != nil }
+/// Where each dunk on the ladder stands. One make lands a dunk; makes in
+/// `sessionsToOwn` separate practice sessions own it. The goal is the first dunk
+/// not owned, unless the athlete pinned another.
+struct DunkProgress {
+    static let sessionsToOwn = 3
 
-    /// The goal is the first dunk on the ladder not landed yet.
-    static func goal(in stages: [DunkStage]) -> DunkStage? {
-        stages.sorted { $0.order < $1.order }.first { !$0.isLanded }
+    let stages: [DunkStage]
+    private var madeIn: [String: Set<PersistentIdentifier>] = [:]
+    private var firstMade: [String: Date] = [:]
+
+    init(stages: [DunkStage], sessions: [PracticeSession]) {
+        self.stages = stages.sorted { $0.order < $1.order }
+        for session in sessions {
+            for attempt in session.attempts where attempt.outcome == .make {
+                madeIn[attempt.stage, default: []].insert(session.persistentModelID)
+                firstMade[attempt.stage] = min(firstMade[attempt.stage] ?? attempt.at, attempt.at)
+            }
+        }
+    }
+
+    /// Practice sessions with at least one make of this dunk.
+    func sessionsMade(_ stage: DunkStage) -> Int { madeIn[stage.name]?.count ?? 0 }
+
+    func isOwned(_ stage: DunkStage) -> Bool {
+        stage.ownedAt != nil || sessionsMade(stage) >= Self.sessionsToOwn
+    }
+
+    func isLanded(_ stage: DunkStage) -> Bool {
+        isOwned(stage) || stage.landedAt != nil || sessionsMade(stage) > 0
+    }
+
+    func landedDate(_ stage: DunkStage) -> Date? {
+        [stage.landedAt, firstMade[stage.name], stage.ownedAt].compactMap { $0 }.min()
+    }
+
+    /// Owned by practice, so the manual override can't take it back.
+    func isOwnedByPractice(_ stage: DunkStage) -> Bool { sessionsMade(stage) >= Self.sessionsToOwn }
+
+    var goal: DunkStage? {
+        stages.first { $0.isGoalPinned && !isOwned($0) } ?? stages.first { !isOwned($0) }
+    }
+
+    /// The next harder dunk after the goal, for a glance past it.
+    var next: DunkStage? {
+        guard let goal else { return nil }
+        return stages.first { !isOwned($0) && $0.order > goal.order && $0.clearanceIn > goal.clearanceIn }
+    }
+
+    /// Pins `stage` as the goal, unpinning any other. Pinning the pinned goal unpins it.
+    static func pin(_ stage: DunkStage, in stages: [DunkStage]) {
+        let pin = !stage.isGoalPinned
+        for other in stages { other.isGoalPinned = false }
+        stage.isGoalPinned = pin
     }
 }
 
@@ -597,6 +661,11 @@ nonisolated struct JumpRep: Codable, Hashable, Identifiable {
     var stage: String = ""
     var outcomeRaw: String = AttemptOutcome.miss.rawValue
     var session: PracticeSession?
+    /// Video of this attempt. Deleting the attempt keeps the video in the library.
+    @Relationship(deleteRule: .nullify, inverse: \Clip.attempt)
+    var clips: [Clip] = []
+
+    var clip: Clip? { clips.first }
 
     init(stage: String, outcome: AttemptOutcome) {
         self.stage = stage
@@ -612,5 +681,6 @@ enum AppSchema {
         Program.self, ProgramWeek.self, PlanDay.self, PlanItem.self,
         WorkoutLog.self, LoggedEntry.self,
         DunkStage.self, PracticeFocus.self, PracticeSession.self, DunkAttempt.self,
+        Clip.self,
     ]
 }

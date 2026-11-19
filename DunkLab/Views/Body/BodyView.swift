@@ -60,26 +60,6 @@ struct BodyView: View {
                     Text("These rarely change. Standing reach is the floor of the ladder on Today.")
                 }
 
-                Section {
-                    MeasureField("Rim height", value: $athlete.rimHeightIn.optional, unit: "in", showFeet: true)
-                    Stepper("Play budget \(Fmt.minutes(Double(athlete.weeklyPlayMinutes))) a week",
-                            value: $athlete.weeklyPlayMinutes, in: 60...600, step: 30)
-                    Stepper("Lean means \(Fmt.number(athlete.leanBodyFatPct))% body fat",
-                            value: $athlete.leanBodyFatPct, in: 5...25, step: 1)
-                } header: {
-                    SectionTitle("Settings")
-                } footer: {
-                    Text("Jump Science treats 10% body fat as lean for men and 15% for women.")
-                }
-
-                #if DEBUG
-                Section {
-                    NavigationLink("Slo-Mo probe") { SlowMoProbeView() }
-                } header: {
-                    SectionTitle("Debug")
-                }
-                #endif
-
                 if !entries.isEmpty {
                     Section {
                         ForEach(entries) { entry in
@@ -96,7 +76,16 @@ struct BodyView: View {
                     }
                 }
             }
-            .navigationTitle("Body")
+            .navigationTitle("Measure")
+            // Applied first so the library keeps the far-right spot it has on every tab.
+            .libraryButton()
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink { SettingsView(athlete: athlete) } label: {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+                }
+            }
             .scrollDismissesKeyboard(.interactively)
             .sheet(isPresented: $logging) {
                 BodyEntrySheet(lastWeight: latestWeight?.weightLb, lastFat: latestFat?.bodyFatPct)
@@ -171,5 +160,44 @@ struct BodyEntrySheet: View {
             }
         }
         .presentationDetents([.medium])
+    }
+}
+
+/// How the app is set up, rather than anything measured: the rim, the week's
+/// play budget, what counts as lean, and where clips are stored.
+struct SettingsView: View {
+    @Bindable var athlete: Athlete
+
+    var body: some View {
+        Form {
+            Section {
+                MeasureField("Rim height", value: $athlete.rimHeightIn.optional, unit: "in", showFeet: true)
+                Stepper("Play budget \(Fmt.minutes(Double(athlete.weeklyPlayMinutes))) a week",
+                        value: $athlete.weeklyPlayMinutes, in: 60...600, step: 30)
+                Stepper("Lean means \(Fmt.number(athlete.leanBodyFatPct))% body fat",
+                        value: $athlete.leanBodyFatPct, in: 5...25, step: 1)
+            } header: {
+                SectionTitle("Training")
+            } footer: {
+                Text("Jump Science treats 10% body fat as lean for men and 15% for women.")
+            }
+
+            Section {
+                NavigationLink("Clip storage") { CloudSettingsView() }
+            } header: {
+                SectionTitle("Videos")
+            }
+
+            #if DEBUG
+            Section {
+                NavigationLink("Slo-Mo probe") { SlowMoProbeView() }
+            } header: {
+                SectionTitle("Debug")
+            }
+            #endif
+        }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
+        .scrollDismissesKeyboard(.interactively)
     }
 }
